@@ -22,8 +22,9 @@ namespace Server.Models
 				this.Date = DateTime.Parse(value);
 			}
 		}
-		public int HomeTeamScore { get; set; }
+		public int Siege { get; set; }
 		public int AwayTeamScore { get; set; }
+		public int HomeTeamScore { get; set; }
 		public Team HomeTeam { get; set; }
 		public Team AwayTeam { get; set; }
 		public int SeasonId { get; set; }

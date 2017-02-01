@@ -12,6 +12,14 @@ namespace Server.WcfModels
 		public int Id { get; set; }
 		public string Name { get; set; }
 
+		public int Points { get; set; }
+		public int Wins { get; set; }
+		public int Defeats { get; set; }
+		public int Draws { get; set; }
+		public int GoalsDifference { get; set; }
+		public int NumberOfGames { get; set; }
+		public int Rank { get; set; }
+
 		public WcfTeam() { }
 
 		public WcfTeam(Team team)

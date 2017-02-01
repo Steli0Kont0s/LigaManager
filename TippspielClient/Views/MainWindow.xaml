@@ -9,8 +9,8 @@
 	<Grid>
 		<TabControl>
 			<TabItem Header="Tippverwaltung">
-				<StackPanel Orientation="Horizontal">
-					<DockPanel Width="300">
+				<DockPanel>
+					<DockPanel Width="300" DockPanel.Dock="Left">
 						<Label Content="Saison:" DockPanel.Dock="Top"/>
 						<ComboBox x:Name="_seasons" ItemsSource="{Binding Seasons}" SelectedItem="{Binding SelectedSeason}" DockPanel.Dock="Top">
 							<ComboBox.ItemTemplate>
@@ -45,10 +45,62 @@
 							</ListView.ItemTemplate>
 						</ListView>
 					</DockPanel>
-				</StackPanel>
+					<StackPanel Orientation="Vertical" DockPanel.Dock="Right">
+						<Grid Margin="0,0,0,10">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+							<Label Content="{Binding SelectedMatch.HomeTeamName}" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center"/>
+							<Label Content="{Binding SelectedMatch.AwayTeamName}" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center"/>
+
+							<Label Content="{Binding SelectedMatch.HomeTeamScore}" Visibility="{Binding MatchIsOver}" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Center"/>
+							<Label Content="{Binding SelectedMatch.AwayTeamScore}" Visibility="{Binding MatchIsOver}" Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Center"/>
+
+							<Label Content="Spiel beginnt:" Visibility="{Binding MatchIsNotOver}" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Center"/>
+							<Label Content="{Binding SelectedMatch.Date}" Visibility="{Binding MatchIsNotOver}" Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Center"/>
+						</Grid>
+						<GroupBox Header="Meine Wette" Visibility="{Binding ShowBet}" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="5">
+							<StackPanel Orientation="Vertical">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
+									<TextBox IsEnabled="{Binding BetIsEditable}" Text="{Binding SelectedBet.HomeTeamScore}" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" Margin="5"/>
+									<TextBox IsEnabled="{Binding BetIsEditable}" Text="{Binding SelectedBet.AwayTeamScore}" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center" Margin="5"/>
+									<Button Command="{Binding EditBetCommand}" Content="Speichern" Width="100" Grid.Row="1" Grid.Column="0" Margin="5"/>
+									<Button Command="{Binding DeleteBetCommand}" Content="Löschen" Width="100" Grid.Row="1" Grid.Column="1" Margin="5"/>
+								</Grid>
+							</StackPanel>
+						</GroupBox>
+						<Button Command="{Binding AddBetCommand}" Content="Neue Wette" Width="100" Grid.Row="1" Grid.Column="1" Margin="5"/>
+					</StackPanel>
+				</DockPanel>
 			</TabItem>
 			<TabItem Header="Saisonstabelle">
-
+				<ListView ItemsSource="{Binding Teams}" x:Name="Teams">
+					<ListView.View>
+						<GridView>
+							<GridViewColumn Width="50"  Header="#" DisplayMemberBinding="{Binding Rank}"/>
+							<GridViewColumn Width="130"  Header="Name" DisplayMemberBinding="{Binding Name}"/>
+							<GridViewColumn Width="50"  Header="Sp." DisplayMemberBinding="{Binding NumberOfGames}"/>
+							<GridViewColumn Width="50"  Header="S" DisplayMemberBinding="{Binding Wins}"/>
+							<GridViewColumn Width="50"  Header="U" DisplayMemberBinding="{Binding Draws}"/>
+							<GridViewColumn Width="50"  Header="N" DisplayMemberBinding="{Binding Defeats}"/>
+							<GridViewColumn Width="50"  Header="+/-" DisplayMemberBinding="{Binding GoalsDifference}"/>
+							<GridViewColumn Width="50"  Header="Pkt." DisplayMemberBinding="{Binding Points}"/>
+						</GridView>
+					</ListView.View>
+				</ListView>
 			</TabItem>
 		</TabControl>
 	</Grid>
