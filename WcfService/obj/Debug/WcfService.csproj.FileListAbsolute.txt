@@ -1,0 +1,5 @@
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\WcfService\bin\Debug\WcfService.dll.config
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\WcfService\bin\Debug\WcfService.dll
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\WcfService\bin\Debug\WcfService.pdb
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\WcfService\obj\Debug\WcfService.dll
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\WcfService\obj\Debug\WcfService.pdb

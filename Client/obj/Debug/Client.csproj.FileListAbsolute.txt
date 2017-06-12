@@ -1,0 +1,14 @@
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\Client.exe.config
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\Client.exe
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\Client.pdb
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\MainWindow.g.cs
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\App.g.cs
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Client_MarkupCompile.cache
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Client_MarkupCompile.lref
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\MainWindow.baml
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Client.g.resources
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Client.exe
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Client.pdb
