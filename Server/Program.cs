@@ -2,6 +2,8 @@
 using Server.Models;
 using System;
 using System.Collections.Generic;
+using System.ServiceModel;
+using System.ServiceModel.Description;
 
 namespace Server
 {
@@ -10,6 +12,9 @@ namespace Server
 		static void Main(string[] args)
 		{
 			Database.Initialize("Database\\LigaManager.db3");
+
+			var serviceHost = new ServiceHost(typeof(LigaService));
+			serviceHost.Open();
 
 			string[] seperators = {" "};
 			string input;
@@ -40,7 +45,7 @@ namespace Server
 									Commands.List.Bettors();
 									break;
 
-								case "satches":
+								case "matches":
 									Commands.List.Matches();
 									break;
 
