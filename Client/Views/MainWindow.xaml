@@ -7,47 +7,39 @@
         mc:Ignorable="d"
         Title="Verwaltung" Height="500" Width="500" ResizeMode="CanMinimize" AutomationProperties.IsOffscreenBehavior="FromClip">
     <Grid>
-		<TabControl>
-			<TabItem Header="Bettors">
-				<StackPanel Orientation="Vertical">
-					<ListBox ItemsSource="{Binding Bettors}" SelectedItem="{Binding SelectedBettor}" x:Name="Bettors" Height="390">
-						<ListBox.ItemTemplate>
-							<DataTemplate>
-								<StackPanel Orientation="Vertical">
-									<TextBlock Text="{Binding Firstname}"/>
-									<TextBlock Text="{Binding Lastname}"/>
-									<TextBlock Text="{Binding Nickname}"/>
-								</StackPanel>
-							</DataTemplate>
-						</ListBox.ItemTemplate>
-					</ListBox>
-					<StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-						<Button x:Name="AddBettor" Content="Add" Command="{Binding ButtonAddBettor}" Margin="5" MinWidth="100" MinHeight="30"/>
-						<Button x:Name="EditBettor" Content="Edit" Margin="5" MinWidth="100" MinHeight="30"/>
-						<Button x:Name="DeleteBettor" Content="Delete" Command="{Binding ButtonDeleteBettor}" Margin="5" MinWidth="100" MinHeight="30"/>
+		<StackPanel Orientation="Vertical">
+			<TabControl>
+				<TabItem Header="Bettors">
+					<StackPanel Orientation="Vertical">
+						<ListBox ItemsSource="{Binding Bettors}" SelectedItem="{Binding SelectedBettor}" x:Name="Bettors" Height="390">
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<StackPanel Orientation="Vertical">
+										<TextBlock Text="{Binding Firstname}"/>
+										<TextBlock Text="{Binding Lastname}"/>
+										<TextBlock Text="{Binding Nickname}"/>
+									</StackPanel>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
 					</StackPanel>
-				</StackPanel>
-			</TabItem>
-			<TabItem Header="Teams">
-				<StackPanel Orientation="Vertical">
-					<ListBox x:Name="Teams" Height="390"/>
-					<StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-						<Button x:Name="AddTeam" Content="Add" Margin="5" MinWidth="100" MinHeight="30"/>
-						<Button x:Name="EditTeam" Content="Edit" Margin="5" MinWidth="100" MinHeight="30"/>
-						<Button x:Name="DeleteTeam" Content="Delete" Margin="5" MinWidth="100" MinHeight="30"/>
+				</TabItem>
+				<TabItem Header="Teams">
+					<StackPanel Orientation="Vertical">
+						<ListBox x:Name="Teams" Height="390"/>
 					</StackPanel>
-				</StackPanel>
-			</TabItem>
-			<TabItem Header="Seasons">
-				<StackPanel Orientation="Vertical">
-					<ListBox x:Name="Seasons" Height="390"/>
-					<StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-						<Button x:Name="AddSeason" Content="Add" Margin="5" MinWidth="100" MinHeight="30"/>
-						<Button x:Name="EditSeason" Content="Edit" Margin="5" MinWidth="100" MinHeight="30"/>
-						<Button x:Name="DeleteSeason" Content="Delete" Margin="5" MinWidth="100" MinHeight="30"/>
+				</TabItem>
+				<TabItem Header="Seasons">
+					<StackPanel Orientation="Vertical">
+						<ListBox x:Name="Seasons" Height="390"/>
 					</StackPanel>
-				</StackPanel>
-			</TabItem>
-		</TabControl>
+				</TabItem>
+			</TabControl>
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+				<Button x:Name="AddSeason" Content="Add" Command="{Binding ButtonAdd}" Margin="5" MinWidth="100" MinHeight="30"/>
+				<Button x:Name="EditSeason" Content="Edit" Command="{Binding ButtonEdit}" Margin="5" MinWidth="100" MinHeight="30"/>
+				<Button x:Name="DeleteSeason" Content="Delete" Command="{Binding ButtonDelete}" Margin="5" MinWidth="100" MinHeight="30"/>
+			</StackPanel>
+		</StackPanel>
 	</Grid>
 </Window>

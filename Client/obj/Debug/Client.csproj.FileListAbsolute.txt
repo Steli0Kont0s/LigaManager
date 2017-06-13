@@ -27,3 +27,5 @@ C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Vie
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\MainWindow.baml
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowAdd.g.cs
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowAdd.baml
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\CantDeleteBettor.g.cs
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\CantDeleteBettor.baml

@@ -20,13 +20,19 @@ namespace Client.Controller
 			mViewModel = new MainWindowViewModel
 			{
 				Bettors = new ObservableCollection<Bettor>(),
-				ButtonAddBettor = new RelayCommand(AddCommandExecute),
-				ButtonDeleteBettor = new RelayCommand(DeleteCommandExecute, DeleteCommandCanExecute)
+				Teams = new ObservableCollection<Team>(),
+				Seasons = new ObservableCollection<Season>(),
+				ButtonAdd = new RelayCommand(AddCommandExecute),
+				ButtonEdit = new RelayCommand(EditCommandExecute),
+				ButtonDelete = new RelayCommand(DeleteCommandExecute, DeleteCommandCanExecute)
 			};
 			view.DataContext = mViewModel;
 
-			LigaServiceReference.LigaServiceClient client = new LigaServiceReference.LigaServiceClient();
-			mViewModel.Bettors.Add(client.GetBettorById(1));
+			LigaServiceReference.LigaServiceClient client = new LigaServiceReference.LigaServiceClient();		// Bettor über WCF vom Server
+			foreach(Bettor bettor in client.GetBettors())
+			{
+				mViewModel.Bettors.Add(bettor);
+			}
 
 			view.ShowDialog();
 		}
@@ -38,6 +44,11 @@ namespace Client.Controller
 			{
 				mViewModel.Bettors.Add(addedObject);
 			}
+		}
+
+		private void EditCommandExecute(object obj)
+		{
+			// Edit Button
 		}
 
 		private void DeleteCommandExecute(object obj)

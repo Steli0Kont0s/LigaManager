@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="Controller\MainWindowController.cs" />
     <Compile Include="Controller\WindowAddController.cs" />
+    <Compile Include="ViewModels\CantDeleteBettorViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\WindowAddViewModel.cs" />
     <Compile Include="App.xaml.cs">
@@ -71,6 +72,9 @@
     </Compile>
     <Compile Include="Framework\RelayCommand.cs" />
     <Compile Include="Framework\ViewModelBase.cs" />
+    <Compile Include="Views\CantDeleteBettor.xaml.cs">
+      <DependentUpon>CantDeleteBettor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -129,6 +133,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\CantDeleteBettor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
