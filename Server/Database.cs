@@ -148,7 +148,7 @@ namespace Server
 			newMatch.HomeTeam = home;
 			newMatch.AwayTeamScore = awayTeamScore;
 			newMatch.HomeTeamScore = homeTeamScore;
-			newMatch.Season = season;
+			//newMatch.Season = season;
 			newMatch.Date = dateTime;
 			mMatchRepository.Save(newMatch);
 		}
@@ -244,7 +244,7 @@ namespace Server
 			bet.HomeTeamScore = homeTeamScore;
 			bet.AwayTeamScore = awayTeamScore;
 			bet.Match = match;
-			bet.Bettor = bettor;
+			//bet.Bettor = bettor;
 			mBetRepository.Save(bet);
 		}
 

@@ -14,14 +14,6 @@ namespace Server.Commands
 			foreach(Team team in Database.GetTeams())
 			{
 				Console.WriteLine("{0} {1}", team.Id, team.Name);
-				foreach (Match match in team.AwayMatches)
-				{
-					Console.WriteLine("    {0} vs {1}", match.AwayTeam.Name, match.HomeTeam.Name);
-				}
-				foreach (Match match in team.HomeMatches)
-				{
-					Console.WriteLine("    {0} vs {1}", match.AwayTeam.Name, match.HomeTeam.Name);
-				}
 			}
 		}
 
@@ -61,11 +53,6 @@ namespace Server.Commands
 				foreach (SeasonsToTeamsRelation relation in season.TeamRelations)
 				{
 					Console.WriteLine(relation.Team.Name);
-				}
-				
-				foreach (Match match in season.Matches)
-				{
-					Console.WriteLine("    {0} vs {1}", match.AwayTeam.Name, match.HomeTeam.Name);
 				}
 				
 			}

@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LigaService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/LigaService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/LigaService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/LigaService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Server.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILigaService_Test_InputMessage">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_Test_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetBettors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBettors" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetBettors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBettorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetBettorById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBettorById" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetBettorById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBettorByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_AddBettor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBettor" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_AddBettor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBettorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_EditBettor_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditBettor" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_EditBettor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditBettorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_DeleteBettor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBettor" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_DeleteBettor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBettorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetTeams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeams" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetTeams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetTeamById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamById" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetTeamById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_AddTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTeam" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_AddTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_EditTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditTeam" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_EditTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_DeleteTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTeam" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_DeleteTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetMatches_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatches" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetMatches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetMatchById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchById" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetMatchById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_AddMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMatch" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_AddMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_EditMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditMatch" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_EditMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_DeleteMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMatch" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_DeleteMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetSeasons_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSeasons" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetSeasons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSeasonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetSeasonById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSeasonById" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetSeasonById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSeasonByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_AddSeason_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSeason" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_AddSeason_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSeasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_EditSeason_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditSeason" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_EditSeason_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditSeasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_DeleteSeason_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSeason" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_DeleteSeason_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSeasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetBets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBets" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetBets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetBetById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBetById" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetBetById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_AddBet_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBet" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_AddBet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_EditBet_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditBet" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_EditBet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditBetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_DeleteBet_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBet" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_DeleteBet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILigaService">
+    <wsdl:operation name="Test">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/Test" message="tns:ILigaService_Test_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/TestResponse" message="tns:ILigaService_Test_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBettors">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetBettors" message="tns:ILigaService_GetBettors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetBettorsResponse" message="tns:ILigaService_GetBettors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBettorById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetBettorById" message="tns:ILigaService_GetBettorById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetBettorByIdResponse" message="tns:ILigaService_GetBettorById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBettor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/AddBettor" message="tns:ILigaService_AddBettor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/AddBettorResponse" message="tns:ILigaService_AddBettor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditBettor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/EditBettor" message="tns:ILigaService_EditBettor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/EditBettorResponse" message="tns:ILigaService_EditBettor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBettor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/DeleteBettor" message="tns:ILigaService_DeleteBettor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/DeleteBettorResponse" message="tns:ILigaService_DeleteBettor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeams">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetTeams" message="tns:ILigaService_GetTeams_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetTeamsResponse" message="tns:ILigaService_GetTeams_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetTeamById" message="tns:ILigaService_GetTeamById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetTeamByIdResponse" message="tns:ILigaService_GetTeamById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/AddTeam" message="tns:ILigaService_AddTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/AddTeamResponse" message="tns:ILigaService_AddTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/EditTeam" message="tns:ILigaService_EditTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/EditTeamResponse" message="tns:ILigaService_EditTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/DeleteTeam" message="tns:ILigaService_DeleteTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/DeleteTeamResponse" message="tns:ILigaService_DeleteTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatches">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetMatches" message="tns:ILigaService_GetMatches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetMatchesResponse" message="tns:ILigaService_GetMatches_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetMatchById" message="tns:ILigaService_GetMatchById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetMatchByIdResponse" message="tns:ILigaService_GetMatchById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/AddMatch" message="tns:ILigaService_AddMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/AddMatchResponse" message="tns:ILigaService_AddMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/EditMatch" message="tns:ILigaService_EditMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/EditMatchResponse" message="tns:ILigaService_EditMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/DeleteMatch" message="tns:ILigaService_DeleteMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/DeleteMatchResponse" message="tns:ILigaService_DeleteMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeasons">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetSeasons" message="tns:ILigaService_GetSeasons_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetSeasonsResponse" message="tns:ILigaService_GetSeasons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeasonById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetSeasonById" message="tns:ILigaService_GetSeasonById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetSeasonByIdResponse" message="tns:ILigaService_GetSeasonById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSeason">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/AddSeason" message="tns:ILigaService_AddSeason_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/AddSeasonResponse" message="tns:ILigaService_AddSeason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditSeason">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/EditSeason" message="tns:ILigaService_EditSeason_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/EditSeasonResponse" message="tns:ILigaService_EditSeason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSeason">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/DeleteSeason" message="tns:ILigaService_DeleteSeason_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/DeleteSeasonResponse" message="tns:ILigaService_DeleteSeason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBets">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetBets" message="tns:ILigaService_GetBets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetBetsResponse" message="tns:ILigaService_GetBets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBetById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetBetById" message="tns:ILigaService_GetBetById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetBetByIdResponse" message="tns:ILigaService_GetBetById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/AddBet" message="tns:ILigaService_AddBet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/AddBetResponse" message="tns:ILigaService_AddBet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditBet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/EditBet" message="tns:ILigaService_EditBet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/EditBetResponse" message="tns:ILigaService_EditBet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/DeleteBet" message="tns:ILigaService_DeleteBet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/DeleteBetResponse" message="tns:ILigaService_DeleteBet_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILigaService" type="tns:ILigaService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBettors">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetBettors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBettorById">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetBettorById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBettor">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/AddBettor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditBettor">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/EditBettor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBettor">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/DeleteBettor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeams">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetTeams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamById">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetTeamById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTeam">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/AddTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditTeam">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/EditTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTeam">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/DeleteTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatches">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetMatches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchById">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetMatchById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMatch">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/AddMatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditMatch">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/EditMatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMatch">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/DeleteMatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeasons">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetSeasons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeasonById">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetSeasonById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSeason">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/AddSeason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditSeason">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/EditSeason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSeason">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/DeleteSeason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBets">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetBets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBetById">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetBetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBet">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/AddBet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditBet">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/EditBet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBet">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/DeleteBet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LigaService">
+    <wsdl:port name="BasicHttpBinding_ILigaService" binding="tns:BasicHttpBinding_ILigaService">
+      <soap:address location="http://localhost:8733/LigaService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

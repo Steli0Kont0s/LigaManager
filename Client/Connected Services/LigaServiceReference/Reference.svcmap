@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b026dca4-8e70-449e-9594-3507f053cb29" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.Collection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/LigaService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LigaService.disco" MetadataType="Disco" ID="7c666c2b-2344-496a-83bb-6691128b9f19" SourceId="1" SourceUrl="http://localhost:8733/LigaService?disco" />
+    <MetadataFile FileName="LigaService.xsd" MetadataType="Schema" ID="f7b724c4-6f51-4f7f-86ba-319af0140d7f" SourceId="1" SourceUrl="http://localhost:8733/LigaService?xsd=xsd2" />
+    <MetadataFile FileName="LigaService1.xsd" MetadataType="Schema" ID="d4407bc7-1b24-46c5-b220-106f77c0c689" SourceId="1" SourceUrl="http://localhost:8733/LigaService?xsd=xsd1" />
+    <MetadataFile FileName="LigaService.wsdl" MetadataType="Wsdl" ID="d7392f5f-e621-4f19-bba8-04de0fc7dec9" SourceId="1" SourceUrl="http://localhost:8733/LigaService?wsdl" />
+    <MetadataFile FileName="LigaService2.xsd" MetadataType="Schema" ID="5fe46042-dd29-4166-912a-0cc7d1b0ef00" SourceId="1" SourceUrl="http://localhost:8733/LigaService?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

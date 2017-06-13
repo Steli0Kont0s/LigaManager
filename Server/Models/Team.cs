@@ -7,7 +7,7 @@ namespace Server.Models
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
-		public IList<Match> HomeMatches { get; set; }
-		public IList<Match> AwayMatches { get; set; }
+		//public IList<Match> HomeMatches { get; set; }
+		//public IList<Match> AwayMatches { get; set; }
 	}
 }
