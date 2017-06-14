@@ -13,5 +13,10 @@ namespace Server.Models
 		public string Firstname { get; set; }
 		public string Lastname { get; set; }
 		public IList<Bet> Bets { get; set; }
+
+		public Bettor()
+		{
+			this.Bets = new List<Bet>();
+		}
 	}
 }

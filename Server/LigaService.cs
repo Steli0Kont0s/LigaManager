@@ -1,4 +1,5 @@
 ﻿using Server.Models;
+using Server.WcfModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,141 +20,206 @@ namespace Server
 
 
 
-		public List<Bettor> GetBettors()
+		public List<WcfBettor> GetAllBettors()
 		{
-			return Database.GetBettors();
+			List<WcfBettor> bettors = new List<WcfBettor>();
+			foreach(Bettor bettor in Database.GetBettors())
+			{
+				bettors.Add(new WcfBettor(bettor));
+			}
+			return bettors;
 		}
 
-		public Bettor GetBettorById(int id)
+		public WcfBettor GetBettorById(int id)
 		{
-			return Database.GetBettorById(id);
+			return new WcfBettor(Database.GetBettorById(id));
 		}
 
-		public void AddBettor(string firstName, string lastName, string nickName)
+		public void AddBettor(WcfBettor bettor)
 		{
-			Database.AddBettor(firstName, lastName, nickName);
+			Database.AddBettor(bettor.Firstname, bettor.Lastname, bettor.Nickname);
 		}
 
-		public void EditBettor(Bettor bettor, string firstName, string lastName, string nickName)
+		public void EditBettor(WcfBettor bettor)
 		{
-			Database.EditBettor(bettor, firstName, lastName, nickName);
+			Database.EditBettor(Database.GetBettorById(bettor.Id), bettor.Firstname, bettor.Lastname, bettor.Nickname);
 		}
 
-		public void DeleteBettor(Bettor bettor)
+		public void DeleteBettor(WcfBettor bettor)
 		{
-			Database.DeleteBettor(bettor);
-		}
-
-
-
-
-		public List<Team> GetTeams()
-		{
-			return Database.GetTeams();
-		}
-
-		public Team GetTeamById(int id)
-		{
-			return Database.GetTeamById(id);
-		}
-
-		public void AddTeam(string name)
-		{
-			Database.AddTeam(name);
-		}
-
-		public void EditTeam(Team team, string name)
-		{
-			Database.EditTeam(team, name);
-		}
-
-		public void DeleteTeam(Team team)
-		{
-			Database.DeleteTeam(team);
+			Database.DeleteBettor(Database.GetBettorById(bettor.Id));
 		}
 
 
 
 
-		public List<Match> GetMatches()
+		public List<WcfTeam> GetAllTeams()
 		{
-			return Database.GetMatches();
+			List<WcfTeam> teams = new List<WcfTeam>();
+			foreach(Team team in Database.GetTeams())
+			{
+				teams.Add(new WcfTeam(team));
+			}
+			return teams;
 		}
 
-		public Match GetMatchById(int id)
+		public List<WcfTeam> GetTeams(WcfSeason season)
 		{
-			return Database.GetMatchById(id);
+			List<WcfTeam> teams = new List<WcfTeam>();
+			foreach (SeasonsToTeamsRelation relation in Database.GetSeasonById(season.Id).TeamRelations)
+			{
+				teams.Add(new WcfTeam(relation.Team));
+			}
+			return teams;
 		}
 
-		public void AddMatch(Season season, Team homeTeam, Team awayTeam, int homeTeamScore, int awayTeamScore, DateTime dateTime)
+		public WcfTeam GetTeamById(int id)
 		{
-			Database.AddMatch(season, homeTeam, awayTeam, homeTeamScore, awayTeamScore, dateTime);
+			return new WcfTeam(Database.GetTeamById(id));
 		}
 
-		public void EditMatch(Match match, int homeTeamScore, int awayTeamScore, DateTime dateTime)
+		public void AddTeam(WcfTeam team)
 		{
-			Database.EditMatch(match, homeTeamScore, awayTeamScore, dateTime);
+			Database.AddTeam(team.Name);
 		}
 
-		public void DeleteMatch(Match match)
+		public void EditTeam(WcfTeam team)
 		{
-			Database.DeleteMatch(match);
+			Database.EditTeam(Database.GetTeamById(team.Id), team.Name);
 		}
 
-
-
-
-		public List<Season> GetSeasons()
+		public void DeleteTeam(WcfTeam team)
 		{
-			return Database.GetSeasons();
+			Database.DeleteTeam(Database.GetTeamById(team.Id));
 		}
 
-		public Season GetSeasonById(int id)
+		public void AddTeamToSeason(WcfTeam team, WcfSeason season)
 		{
-			return Database.GetSeasonById(id);
-		}
-
-		public void AddSeason(string name, string description, DateTime dateTime)
-		{
-			Database.AddSeason(name, description, dateTime);
-		}
-
-		public void EditSeason(Season season, String name)
-		{
-			Database.EditSeason(season, name);
-		}
-
-		public void DeleteSeason(Season season)
-		{
-			Database.DeleteSeason(season);
+			Database.AddSeasonsToTeamsRelation(Database.GetTeamById(team.Id), Database.GetSeasonById(season.Id));
 		}
 
 
 
 
-		public List<Bet> GetBets()
+		public List<WcfMatch> GetAllMatches()
 		{
-			return Database.GetBets();
+			List<WcfMatch> matches = new List<WcfMatch>();
+			foreach(Match match in Database.GetMatches())
+			{
+				matches.Add(new WcfMatch(match));
+			}
+			return matches;
 		}
 
-		public Bet GetBetById(int id)
+		public List<WcfMatch> GetMatches(WcfSeason season)
 		{
-			return Database.GetBetById(id);
+			List<WcfMatch> matches = new List<WcfMatch>();
+			foreach (Match match in Database.GetSeasonById(season.Id).Matches)
+			{
+				matches.Add(new WcfMatch(match));
+			}
+			return matches;
 		}
 
-		public void AddBet(Bettor bettor, Match match, int homeTeamScore, int awayTeamScore)
+		public WcfMatch GetMatchById(int id)
 		{
-			Database.AddBet(bettor, match, homeTeamScore, awayTeamScore);
+			return new WcfMatch(Database.GetMatchById(id));
 		}
 
-		public void EditBet(Bet bet, int homeTeamScore, int awayTeamScore)
+		public void AddMatch(WcfMatch match)
 		{
-			Database.EditBet(bet, homeTeamScore, awayTeamScore);
+			Database.AddMatch(Database.GetSeasonById(match.SeasonId), 
+				Database.GetTeamById(match.HomeTeamId), 
+				Database.GetTeamById(match.AwayTeamId), 
+				match.HomeTeamScore, 
+				match.AwayTeamScore, 
+				match.Date);
 		}
 
-		public void DeleteBet(Bet bet)
+		public void EditMatch(WcfMatch match)
 		{
-			Database.DeleteBet(bet);
+			Database.EditMatch(Database.GetMatchById(match.Id), match.HomeTeamScore, match.AwayTeamScore, match.Date);
+		}
+
+		public void DeleteMatch(WcfMatch match)
+		{
+			Database.DeleteMatch(Database.GetMatchById(match.Id));
+		}
+
+
+
+
+		public List<WcfSeason> GetAllSeasons()
+		{
+			List<WcfSeason> seasons = new List<WcfSeason>();
+			foreach(Season season in Database.GetSeasons())
+			{
+				seasons.Add(new WcfSeason(season));
+			}
+			return seasons;
+		}
+
+		public WcfSeason GetSeasonById(int id)
+		{
+			return new WcfSeason(Database.GetSeasonById(id));
+		}
+
+		public void AddSeason(WcfSeason season)
+		{
+			Database.AddSeason(season.Name, season.Description, season.StartDate);
+		}
+
+		public void EditSeason(WcfSeason season)
+		{
+			Database.EditSeason(Database.GetSeasonById(season.Id), season.Name, season.Description, season.StartDate);
+		}
+
+		public void DeleteSeason(WcfSeason season)
+		{
+			Database.DeleteSeason(Database.GetSeasonById(season.Id));
+		}
+
+
+
+
+		public List<WcfBet> GetAllBets()
+		{
+			List<WcfBet> bets = new List<WcfBet>();
+			foreach(Bet bet in Database.GetBets())
+			{
+				bets.Add(new WcfBet(bet));
+			}
+			return bets;
+		}
+
+		public List<WcfBet> GetBets(WcfBettor bettor)
+		{
+			List<WcfBet> bets = new List<WcfBet>();
+			foreach (Bet bet in Database.GetBettorById(bettor.Id).Bets)
+			{
+				bets.Add(new WcfBet(bet));
+			}
+			return bets;
+		}
+
+		public WcfBet GetBetById(int id)
+		{
+			return new WcfBet(Database.GetBetById(id));
+		}
+
+		public void AddBet(WcfBet bet)
+		{
+			Database.AddBet(Database.GetBettorById(bet.BettorId), Database.GetMatchById(bet.MatchId), bet.HomeTeamScore, bet.AwayTeamScore);
+		}
+
+		public void EditBet(WcfBet bet)
+		{
+			Database.EditBet(Database.GetBetById(bet.Id), bet.HomeTeamScore, bet.AwayTeamScore);
+		}
+
+		public void DeleteBet(WcfBet bet)
+		{
+			Database.DeleteBet(Database.GetBetById(bet.Id));
 		}
 	}
 }

@@ -80,11 +80,16 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LigaService.cs" />
+    <Compile Include="WcfModels\WcfBet.cs" />
+    <Compile Include="WcfModels\WcfBettor.cs" />
+    <Compile Include="WcfModels\WcfMatch.cs" />
+    <Compile Include="WcfModels\WcfSeason.cs" />
+    <Compile Include="WcfModels\WcfTeam.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Database\LigaManager.db3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,7 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8733/LigaService?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8733/LigaService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8733/LigaService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Server.Models" />
+      <xsd:import schemaLocation="http://localhost:8733/LigaService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Server.WcfModels" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ILigaService_Test_InputMessage">
@@ -13,11 +13,11 @@
   <wsdl:message name="ILigaService_Test_OutputMessage">
     <wsdl:part name="parameters" element="tns:TestResponse" />
   </wsdl:message>
-  <wsdl:message name="ILigaService_GetBettors_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetBettors" />
+  <wsdl:message name="ILigaService_GetAllBettors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBettors" />
   </wsdl:message>
-  <wsdl:message name="ILigaService_GetBettors_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetBettorsResponse" />
+  <wsdl:message name="ILigaService_GetAllBettors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBettorsResponse" />
   </wsdl:message>
   <wsdl:message name="ILigaService_GetBettorById_InputMessage">
     <wsdl:part name="parameters" element="tns:GetBettorById" />
@@ -42,6 +42,12 @@
   </wsdl:message>
   <wsdl:message name="ILigaService_DeleteBettor_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteBettorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetAllTeams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTeams" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetAllTeams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTeamsResponse" />
   </wsdl:message>
   <wsdl:message name="ILigaService_GetTeams_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTeams" />
@@ -73,6 +79,18 @@
   <wsdl:message name="ILigaService_DeleteTeam_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteTeamResponse" />
   </wsdl:message>
+  <wsdl:message name="ILigaService_AddTeamToSeason_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTeamToSeason" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_AddTeamToSeason_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTeamToSeasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetAllMatches_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMatches" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetAllMatches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMatchesResponse" />
+  </wsdl:message>
   <wsdl:message name="ILigaService_GetMatches_InputMessage">
     <wsdl:part name="parameters" element="tns:GetMatches" />
   </wsdl:message>
@@ -103,11 +121,11 @@
   <wsdl:message name="ILigaService_DeleteMatch_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteMatchResponse" />
   </wsdl:message>
-  <wsdl:message name="ILigaService_GetSeasons_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetSeasons" />
+  <wsdl:message name="ILigaService_GetAllSeasons_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSeasons" />
   </wsdl:message>
-  <wsdl:message name="ILigaService_GetSeasons_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetSeasonsResponse" />
+  <wsdl:message name="ILigaService_GetAllSeasons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSeasonsResponse" />
   </wsdl:message>
   <wsdl:message name="ILigaService_GetSeasonById_InputMessage">
     <wsdl:part name="parameters" element="tns:GetSeasonById" />
@@ -132,6 +150,12 @@
   </wsdl:message>
   <wsdl:message name="ILigaService_DeleteSeason_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteSeasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetAllBets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBets" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetAllBets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBetsResponse" />
   </wsdl:message>
   <wsdl:message name="ILigaService_GetBets_InputMessage">
     <wsdl:part name="parameters" element="tns:GetBets" />
@@ -168,9 +192,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/Test" message="tns:ILigaService_Test_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/TestResponse" message="tns:ILigaService_Test_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetBettors">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetBettors" message="tns:ILigaService_GetBettors_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetBettorsResponse" message="tns:ILigaService_GetBettors_OutputMessage" />
+    <wsdl:operation name="GetAllBettors">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetAllBettors" message="tns:ILigaService_GetAllBettors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetAllBettorsResponse" message="tns:ILigaService_GetAllBettors_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetBettorById">
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetBettorById" message="tns:ILigaService_GetBettorById_InputMessage" />
@@ -187,6 +211,10 @@
     <wsdl:operation name="DeleteBettor">
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/DeleteBettor" message="tns:ILigaService_DeleteBettor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/DeleteBettorResponse" message="tns:ILigaService_DeleteBettor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTeams">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetAllTeams" message="tns:ILigaService_GetAllTeams_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetAllTeamsResponse" message="tns:ILigaService_GetAllTeams_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetTeams">
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetTeams" message="tns:ILigaService_GetTeams_InputMessage" />
@@ -208,6 +236,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/DeleteTeam" message="tns:ILigaService_DeleteTeam_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/DeleteTeamResponse" message="tns:ILigaService_DeleteTeam_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AddTeamToSeason">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/AddTeamToSeason" message="tns:ILigaService_AddTeamToSeason_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/AddTeamToSeasonResponse" message="tns:ILigaService_AddTeamToSeason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMatches">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetAllMatches" message="tns:ILigaService_GetAllMatches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetAllMatchesResponse" message="tns:ILigaService_GetAllMatches_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetMatches">
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetMatches" message="tns:ILigaService_GetMatches_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetMatchesResponse" message="tns:ILigaService_GetMatches_OutputMessage" />
@@ -228,9 +264,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/DeleteMatch" message="tns:ILigaService_DeleteMatch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/DeleteMatchResponse" message="tns:ILigaService_DeleteMatch_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetSeasons">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetSeasons" message="tns:ILigaService_GetSeasons_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetSeasonsResponse" message="tns:ILigaService_GetSeasons_OutputMessage" />
+    <wsdl:operation name="GetAllSeasons">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetAllSeasons" message="tns:ILigaService_GetAllSeasons_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetAllSeasonsResponse" message="tns:ILigaService_GetAllSeasons_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetSeasonById">
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetSeasonById" message="tns:ILigaService_GetSeasonById_InputMessage" />
@@ -247,6 +283,10 @@
     <wsdl:operation name="DeleteSeason">
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/DeleteSeason" message="tns:ILigaService_DeleteSeason_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/DeleteSeasonResponse" message="tns:ILigaService_DeleteSeason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBets">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetAllBets" message="tns:ILigaService_GetAllBets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetAllBetsResponse" message="tns:ILigaService_GetAllBets_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetBets">
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetBets" message="tns:ILigaService_GetBets_InputMessage" />
@@ -280,8 +320,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetBettors">
-      <soap:operation soapAction="http://tempuri.org/ILigaService/GetBettors" style="document" />
+    <wsdl:operation name="GetAllBettors">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetAllBettors" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -318,6 +358,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteBettor">
       <soap:operation soapAction="http://tempuri.org/ILigaService/DeleteBettor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTeams">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetAllTeams" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -370,6 +419,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AddTeamToSeason">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/AddTeamToSeason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMatches">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetAllMatches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetMatches">
       <soap:operation soapAction="http://tempuri.org/ILigaService/GetMatches" style="document" />
       <wsdl:input>
@@ -415,8 +482,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetSeasons">
-      <soap:operation soapAction="http://tempuri.org/ILigaService/GetSeasons" style="document" />
+    <wsdl:operation name="GetAllSeasons">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetAllSeasons" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -453,6 +520,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteSeason">
       <soap:operation soapAction="http://tempuri.org/ILigaService/DeleteSeason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBets">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetAllBets" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -25,7 +25,9 @@ C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\Ies
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\Iesi.Collections.xml
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\MainWindow.g.cs
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\MainWindow.baml
-C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowAdd.g.cs
-C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowAdd.baml
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\CantDeleteBettor.g.cs
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\CantDeleteBettor.baml
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowBettor.g.cs
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowTeam.g.cs
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowBettor.baml
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowTeam.baml

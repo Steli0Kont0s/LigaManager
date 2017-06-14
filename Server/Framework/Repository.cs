@@ -43,6 +43,18 @@ namespace Server.Framework
 			}
 		}
 
+		public void Update(T entity)
+		{
+			using (var session = NHibernateHelper.OpenSession())
+			{
+				using (var transaction = session.BeginTransaction())
+				{
+					session.Update(entity);
+					transaction.Commit();
+				}
+			}
+		}
+
 		public T GetById(int id)
 		{
 			using (var session = NHibernateHelper.OpenSession())

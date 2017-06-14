@@ -1,4 +1,5 @@
 ﻿using Server.Models;
+using Server.WcfModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,90 +21,102 @@ namespace Server
 
 
 		[OperationContract]
-		List<Bettor> GetBettors();
+		List<WcfBettor> GetAllBettors();
 
 		[OperationContract]
-		Bettor GetBettorById(int id);
+		WcfBettor GetBettorById(int id);
 
 		[OperationContract]
-		void AddBettor(string firstName, string lastName, string nickName);
+		void AddBettor(WcfBettor bettor);
 
 		[OperationContract]
-		void EditBettor(Bettor bettor, string firstName, string lastName, string nickName);
+		void EditBettor(WcfBettor bettor);
 
 		[OperationContract]
-		void DeleteBettor(Bettor bettor);
-
-
-
-
-		[OperationContract]
-		List<Team> GetTeams();
-
-		[OperationContract]
-		Team GetTeamById(int id);
-
-		[OperationContract]
-		void AddTeam(string name);
-
-		[OperationContract]
-		void EditTeam(Team team, string name);
-
-		[OperationContract]
-		void DeleteTeam(Team team);
+		void DeleteBettor(WcfBettor bettor);
 
 
 
 
 		[OperationContract]
-		List<Match> GetMatches();
+		List<WcfTeam> GetAllTeams();
 
 		[OperationContract]
-		Match GetMatchById(int id);
+		List<WcfTeam> GetTeams(WcfSeason season);
 
 		[OperationContract]
-		void AddMatch(Season season, Team homeTeam, Team awayTeam, int homeTeamScore, int awayTeamScore, DateTime dateTime);
+		WcfTeam GetTeamById(int id);
 
 		[OperationContract]
-		void EditMatch(Match match, int homeTeamScore, int awayTeamScore, DateTime dateTime);
+		void AddTeam(WcfTeam team);
 
 		[OperationContract]
-		void DeleteMatch(Match match);
-
-
-
+		void EditTeam(WcfTeam team);
 
 		[OperationContract]
-		List<Season> GetSeasons();
+		void DeleteTeam(WcfTeam team);
 
 		[OperationContract]
-		Season GetSeasonById(int id);
-
-		[OperationContract]
-		void AddSeason(string name, string description, DateTime dateTime);
-
-		[OperationContract]
-		void EditSeason(Season season, String name);
-
-		[OperationContract]
-		void DeleteSeason(Season season);
+		void AddTeamToSeason(WcfTeam team, WcfSeason season);
 
 
 
 
 		[OperationContract]
-		List<Bet> GetBets();
+		List<WcfMatch> GetAllMatches();
 
 		[OperationContract]
-		Bet GetBetById(int id);
+		List<WcfMatch> GetMatches(WcfSeason season);
 
 		[OperationContract]
-		void AddBet(Bettor bettor, Match match, int homeTeamScore, int awayTeamScore);
+		WcfMatch GetMatchById(int id);
 
 		[OperationContract]
-		void EditBet(Bet bet, int homeTeamScore, int awayTeamScore);
+		void AddMatch(WcfMatch match);
 
 		[OperationContract]
-		void DeleteBet(Bet bet);
+		void EditMatch(WcfMatch match);
+
+		[OperationContract]
+		void DeleteMatch(WcfMatch match);
+
+
+
+
+		[OperationContract]
+		List<WcfSeason> GetAllSeasons();
+
+		[OperationContract]
+		WcfSeason GetSeasonById(int id);
+
+		[OperationContract]
+		void AddSeason(WcfSeason season);
+
+		[OperationContract]
+		void EditSeason(WcfSeason season);
+
+		[OperationContract]
+		void DeleteSeason(WcfSeason season);
+
+
+
+
+		[OperationContract]
+		List<WcfBet> GetAllBets();
+
+		[OperationContract]
+		List<WcfBet> GetBets(WcfBettor bettor);
+
+		[OperationContract]
+		WcfBet GetBetById(int id);
+
+		[OperationContract]
+		void AddBet(WcfBet bet);
+
+		[OperationContract]
+		void EditBet(WcfBet bet);
+
+		[OperationContract]
+		void DeleteBet(WcfBet bet);
 	}
 }

@@ -1,13 +1,14 @@
 ﻿using Client.Framework;
 using Client.ViewModels;
 using Client.Views;
-using Server.Models;
+using Server.WcfModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Client.Controller
 {
@@ -19,58 +20,202 @@ namespace Client.Controller
 			var view = new MainWindow();
 			mViewModel = new MainWindowViewModel
 			{
-				Bettors = new ObservableCollection<Bettor>(),
-				Teams = new ObservableCollection<Team>(),
-				Seasons = new ObservableCollection<Season>(),
+				SelectedTab = 0,
+				Bettors = new ObservableCollection<WcfBettor>(),
+				Teams = new ObservableCollection<WcfTeam>(),
+				Seasons = new ObservableCollection<WcfSeason>(),
 				ButtonAdd = new RelayCommand(AddCommandExecute),
-				ButtonEdit = new RelayCommand(EditCommandExecute),
-				ButtonDelete = new RelayCommand(DeleteCommandExecute, DeleteCommandCanExecute)
+				ButtonEdit = new RelayCommand(EditCommandExecute, CommandCanExecute),
+				ButtonDelete = new RelayCommand(DeleteCommandExecute, CommandCanExecute)
 			};
 			view.DataContext = mViewModel;
 
-			LigaServiceReference.LigaServiceClient client = new LigaServiceReference.LigaServiceClient();		// Bettor über WCF vom Server
-			foreach(Bettor bettor in client.GetBettors())
-			{
-				mViewModel.Bettors.Add(bettor);
-			}
+			WcfHelper.Initialize(); // Erstelle Wcf Service
 
+			// Daten Laden
+			ReloadBettors();
+			ReloadSeasons();
+			ReloadTeams();	
+			
 			view.ShowDialog();
 		}
 
-		private void AddCommandExecute(object obj)
+		private void ReloadBettors()
 		{
-			var addedObject = new WindowAddController().AddBettor();
-			if(addedObject != null)
+			mViewModel.Bettors.Clear();
+			foreach (WcfBettor bettor in WcfHelper.client.GetAllBettors())
 			{
-				mViewModel.Bettors.Add(addedObject);
+				mViewModel.Bettors.Add(bettor);
 			}
 		}
 
-		private void EditCommandExecute(object obj)
+		private void ReloadTeams()
 		{
-			// Edit Button
+			mViewModel.Teams.Clear();
+			foreach (WcfTeam team in WcfHelper.client.GetAllTeams())
+			{
+				mViewModel.Teams.Add(team);
+			}
 		}
 
-		private void DeleteCommandExecute(object obj)
+		private void ReloadSeasons()
+		{
+			mViewModel.Seasons.Clear();
+			foreach (WcfSeason season in WcfHelper.client.GetAllSeasons())
+			{
+				mViewModel.Seasons.Add(season);
+			}
+		}
+
+		private void DeleteBettor()
 		{
 			if (mViewModel.SelectedBettor != null)
 			{
-				if(mViewModel.SelectedBettor.Bets.Count() == 0)
+				if (WcfHelper.client.GetBets(mViewModel.SelectedBettor).Count() == 0)
 				{
+					WcfHelper.client.DeleteBettor(mViewModel.SelectedBettor);
 					mViewModel.Bettors.Remove(mViewModel.SelectedBettor);
+					ReloadBettors();
 				}
 				else
 				{
 					// Bettor kann nicht gelöscht werden, da er noch bets besitzt
+					MessageBox.Show("Can't delete Bettor while he still has bets.");
 				}
-				
+
 			}
-				
 		}
 
-		private bool DeleteCommandCanExecute(object obj)
+		private void AddBettor()
 		{
-			return mViewModel.SelectedBettor != null;
+			var addedObject = new WindowAddBettorController().AddBettor();
+			if (addedObject != null)
+			{
+				WcfHelper.client.AddBettor(addedObject);
+				ReloadBettors();
+			}
+		}
+
+		private void EditBettor()
+		{
+			if(mViewModel.SelectedBettor != null)
+			{
+				WcfBettor editedBettor = new WindowEditBettorController().EditBettor(mViewModel.SelectedBettor);
+				if (editedBettor != null)
+				{
+					WcfHelper.client.EditBettor(editedBettor);
+					ReloadBettors();
+				}
+			}
+		}
+
+		private void DeleteTeam()
+		{
+			if (mViewModel.SelectedTeam != null)
+			{
+				WcfHelper.client.DeleteTeam(mViewModel.SelectedTeam);
+				mViewModel.Teams.Remove(mViewModel.SelectedTeam);
+				ReloadTeams();
+			}
+		}
+
+		private void AddTeam()
+		{
+			WcfTeam addedTeam = new WindowAddTeamController().AddTeam();
+			if (addedTeam != null)
+			{
+				WcfHelper.client.AddTeam(addedTeam);
+				ReloadTeams();
+			}
+		}
+
+		private void EditTeam()
+		{
+			if (mViewModel.SelectedTeam != null)
+			{
+				WcfTeam editedTeam = new WindowEditTeamController().EditTeam(mViewModel.SelectedTeam);
+				if (editedTeam != null)
+				{
+					WcfHelper.client.EditTeam(editedTeam);
+					ReloadTeams();
+				}
+			}
+		}
+
+		// Button Add
+		private void AddCommandExecute(object obj)
+		{
+			switch (mViewModel.SelectedTab)
+			{
+				case 0:		// Bettors     
+					AddBettor();
+					break;
+
+				case 1:     // Teams
+					AddTeam();
+					break;
+
+				case 2:		// Seasons
+
+					break;
+			}
+		}
+
+		// Button Edit
+		private void EditCommandExecute(object obj)
+		{
+			switch (mViewModel.SelectedTab)
+			{
+				case 0:     // Bettors
+					EditBettor();
+					break;
+
+				case 1:     // Teams
+					EditTeam();
+					break;
+
+				case 2:     // Seasons
+
+					break;
+			}
+		}
+
+		// Button Delete
+		private void DeleteCommandExecute(object obj)
+		{
+			switch (mViewModel.SelectedTab)
+			{
+				case 0:     // Bettors
+					DeleteBettor();
+					break;
+
+				case 1:     // Teams
+					DeleteTeam();
+					break;
+
+				case 2:     // Seasons
+
+					break;
+			}				
+		}
+
+		private bool CommandCanExecute(object obj)
+		{
+			switch (mViewModel.SelectedTab)
+			{
+				case 0:     // Bettors
+					return mViewModel.SelectedBettor != null;
+					break;
+
+				case 1:     // Teams
+					return mViewModel.SelectedTeam != null;
+					break;
+
+				case 2:     // Seasons
+					return mViewModel.SelectedSeason != null;
+					break;
+			}
+			return false;
 		}
 	}
 }

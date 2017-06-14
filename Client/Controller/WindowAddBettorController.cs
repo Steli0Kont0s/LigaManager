@@ -1,7 +1,7 @@
 ﻿using Client.Framework;
 using Client.ViewModels;
 using Client.Views;
-using Server.Models;
+using Server.WcfModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,22 +10,23 @@ using System.Threading.Tasks;
 
 namespace Client.Controller
 {
-	class WindowAddController
+	class WindowAddBettorController
 	{
-		private WindowAdd mView;
+		private WindowBettor mView;
 
-		public Bettor AddBettor()
+		public WcfBettor AddBettor()
 		{
-			mView = new WindowAdd();
-			var viewModel = new WindowAddViewModel
+			mView = new WindowBettor();
+			var viewModel = new WindowBettorViewModel
 			{
-				Model = new Bettor(),
+				Bettor = new WcfBettor(),
 				OkCommand = new RelayCommand(ExecuteOkCommand),
 				CancelCommand = new RelayCommand(ExecuteCancelCommand)
 			};
 
+			mView.Title = "Add Bettor";
 			mView.DataContext = viewModel;
-			return mView.ShowDialog() == true ? viewModel.Model : null;
+			return mView.ShowDialog() == true ? viewModel.Bettor : null;
 		}
 
 		private void ExecuteOkCommand(object obj)

@@ -8,15 +8,17 @@
         Title="Verwaltung" Height="500" Width="500" ResizeMode="CanMinimize" AutomationProperties.IsOffscreenBehavior="FromClip">
     <Grid>
 		<StackPanel Orientation="Vertical">
-			<TabControl>
+			<TabControl x:Name="TabControlMain" SelectedIndex="{Binding SelectedTab}">
 				<TabItem Header="Bettors">
 					<StackPanel Orientation="Vertical">
 						<ListBox ItemsSource="{Binding Bettors}" SelectedItem="{Binding SelectedBettor}" x:Name="Bettors" Height="390">
 							<ListBox.ItemTemplate>
 								<DataTemplate>
-									<StackPanel Orientation="Vertical">
-										<TextBlock Text="{Binding Firstname}"/>
-										<TextBlock Text="{Binding Lastname}"/>
+									<StackPanel Orientation="Vertical" Margin="0,0,0,5">
+										<StackPanel Orientation="Horizontal">
+											<TextBlock Text="{Binding Firstname}" FontWeight="Bold" Margin="0,0,5,0"/>
+											<TextBlock Text="{Binding Lastname}" FontWeight="Bold"/>
+										</StackPanel>
 										<TextBlock Text="{Binding Nickname}"/>
 									</StackPanel>
 								</DataTemplate>
@@ -26,12 +28,29 @@
 				</TabItem>
 				<TabItem Header="Teams">
 					<StackPanel Orientation="Vertical">
-						<ListBox x:Name="Teams" Height="390"/>
+						<ListBox ItemsSource="{Binding Teams}" SelectedItem="{Binding SelectedTeam}" x:Name="Teams" Height="390">
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<StackPanel Orientation="Vertical">
+										<TextBlock Text="{Binding Name}"/>
+									</StackPanel>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
 					</StackPanel>
 				</TabItem>
 				<TabItem Header="Seasons">
 					<StackPanel Orientation="Vertical">
-						<ListBox x:Name="Seasons" Height="390"/>
+						<ListBox ItemsSource="{Binding Seasons}" SelectedItem="{Binding SelectedSeason}" x:Name="Seasons" Height="390">
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<StackPanel Orientation="Vertical" Margin="0,0,0,5">
+										<TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+										<TextBlock Text="{Binding Description}"/>
+									</StackPanel>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
 					</StackPanel>
 				</TabItem>
 			</TabControl>

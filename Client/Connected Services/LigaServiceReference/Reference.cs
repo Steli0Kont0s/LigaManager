@@ -21,155 +21,179 @@ namespace Client.LigaServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/Test", ReplyAction="http://tempuri.org/ILigaService/TestResponse")]
         System.Threading.Tasks.Task<string> TestAsync(string Test);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetBettors", ReplyAction="http://tempuri.org/ILigaService/GetBettorsResponse")]
-        System.Collections.ObjectModel.Collection<Server.Models.Bettor> GetBettors();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetAllBettors", ReplyAction="http://tempuri.org/ILigaService/GetAllBettorsResponse")]
+        System.Collections.ObjectModel.Collection<Server.WcfModels.WcfBettor> GetAllBettors();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetBettors", ReplyAction="http://tempuri.org/ILigaService/GetBettorsResponse")]
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.Models.Bettor>> GetBettorsAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetBettorById", ReplyAction="http://tempuri.org/ILigaService/GetBettorByIdResponse")]
-        Server.Models.Bettor GetBettorById(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetAllBettors", ReplyAction="http://tempuri.org/ILigaService/GetAllBettorsResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfBettor>> GetAllBettorsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetBettorById", ReplyAction="http://tempuri.org/ILigaService/GetBettorByIdResponse")]
-        System.Threading.Tasks.Task<Server.Models.Bettor> GetBettorByIdAsync(int id);
+        Server.WcfModels.WcfBettor GetBettorById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetBettorById", ReplyAction="http://tempuri.org/ILigaService/GetBettorByIdResponse")]
+        System.Threading.Tasks.Task<Server.WcfModels.WcfBettor> GetBettorByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/AddBettor", ReplyAction="http://tempuri.org/ILigaService/AddBettorResponse")]
-        void AddBettor(string firstName, string lastName, string nickName);
+        void AddBettor(Server.WcfModels.WcfBettor bettor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/AddBettor", ReplyAction="http://tempuri.org/ILigaService/AddBettorResponse")]
-        System.Threading.Tasks.Task AddBettorAsync(string firstName, string lastName, string nickName);
+        System.Threading.Tasks.Task AddBettorAsync(Server.WcfModels.WcfBettor bettor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/EditBettor", ReplyAction="http://tempuri.org/ILigaService/EditBettorResponse")]
-        void EditBettor(Server.Models.Bettor bettor, string firstName, string lastName, string nickName);
+        void EditBettor(Server.WcfModels.WcfBettor bettor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/EditBettor", ReplyAction="http://tempuri.org/ILigaService/EditBettorResponse")]
-        System.Threading.Tasks.Task EditBettorAsync(Server.Models.Bettor bettor, string firstName, string lastName, string nickName);
+        System.Threading.Tasks.Task EditBettorAsync(Server.WcfModels.WcfBettor bettor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteBettor", ReplyAction="http://tempuri.org/ILigaService/DeleteBettorResponse")]
-        void DeleteBettor(Server.Models.Bettor bettor);
+        void DeleteBettor(Server.WcfModels.WcfBettor bettor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteBettor", ReplyAction="http://tempuri.org/ILigaService/DeleteBettorResponse")]
-        System.Threading.Tasks.Task DeleteBettorAsync(Server.Models.Bettor bettor);
+        System.Threading.Tasks.Task DeleteBettorAsync(Server.WcfModels.WcfBettor bettor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetAllTeams", ReplyAction="http://tempuri.org/ILigaService/GetAllTeamsResponse")]
+        System.Collections.ObjectModel.Collection<Server.WcfModels.WcfTeam> GetAllTeams();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetAllTeams", ReplyAction="http://tempuri.org/ILigaService/GetAllTeamsResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfTeam>> GetAllTeamsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetTeams", ReplyAction="http://tempuri.org/ILigaService/GetTeamsResponse")]
-        System.Collections.ObjectModel.Collection<Server.Models.Team> GetTeams();
+        System.Collections.ObjectModel.Collection<Server.WcfModels.WcfTeam> GetTeams(Server.WcfModels.WcfSeason season);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetTeams", ReplyAction="http://tempuri.org/ILigaService/GetTeamsResponse")]
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.Models.Team>> GetTeamsAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfTeam>> GetTeamsAsync(Server.WcfModels.WcfSeason season);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetTeamById", ReplyAction="http://tempuri.org/ILigaService/GetTeamByIdResponse")]
-        Server.Models.Team GetTeamById(int id);
+        Server.WcfModels.WcfTeam GetTeamById(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetTeamById", ReplyAction="http://tempuri.org/ILigaService/GetTeamByIdResponse")]
-        System.Threading.Tasks.Task<Server.Models.Team> GetTeamByIdAsync(int id);
+        System.Threading.Tasks.Task<Server.WcfModels.WcfTeam> GetTeamByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/AddTeam", ReplyAction="http://tempuri.org/ILigaService/AddTeamResponse")]
-        void AddTeam(string name);
+        void AddTeam(Server.WcfModels.WcfTeam team);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/AddTeam", ReplyAction="http://tempuri.org/ILigaService/AddTeamResponse")]
-        System.Threading.Tasks.Task AddTeamAsync(string name);
+        System.Threading.Tasks.Task AddTeamAsync(Server.WcfModels.WcfTeam team);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/EditTeam", ReplyAction="http://tempuri.org/ILigaService/EditTeamResponse")]
-        void EditTeam(Server.Models.Team team, string name);
+        void EditTeam(Server.WcfModels.WcfTeam team);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/EditTeam", ReplyAction="http://tempuri.org/ILigaService/EditTeamResponse")]
-        System.Threading.Tasks.Task EditTeamAsync(Server.Models.Team team, string name);
+        System.Threading.Tasks.Task EditTeamAsync(Server.WcfModels.WcfTeam team);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteTeam", ReplyAction="http://tempuri.org/ILigaService/DeleteTeamResponse")]
-        void DeleteTeam(Server.Models.Team team);
+        void DeleteTeam(Server.WcfModels.WcfTeam team);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteTeam", ReplyAction="http://tempuri.org/ILigaService/DeleteTeamResponse")]
-        System.Threading.Tasks.Task DeleteTeamAsync(Server.Models.Team team);
+        System.Threading.Tasks.Task DeleteTeamAsync(Server.WcfModels.WcfTeam team);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/AddTeamToSeason", ReplyAction="http://tempuri.org/ILigaService/AddTeamToSeasonResponse")]
+        void AddTeamToSeason(Server.WcfModels.WcfTeam team, Server.WcfModels.WcfSeason season);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/AddTeamToSeason", ReplyAction="http://tempuri.org/ILigaService/AddTeamToSeasonResponse")]
+        System.Threading.Tasks.Task AddTeamToSeasonAsync(Server.WcfModels.WcfTeam team, Server.WcfModels.WcfSeason season);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetAllMatches", ReplyAction="http://tempuri.org/ILigaService/GetAllMatchesResponse")]
+        System.Collections.ObjectModel.Collection<Server.WcfModels.WcfMatch> GetAllMatches();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetAllMatches", ReplyAction="http://tempuri.org/ILigaService/GetAllMatchesResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfMatch>> GetAllMatchesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetMatches", ReplyAction="http://tempuri.org/ILigaService/GetMatchesResponse")]
-        System.Collections.ObjectModel.Collection<Server.Models.Match> GetMatches();
+        System.Collections.ObjectModel.Collection<Server.WcfModels.WcfMatch> GetMatches(Server.WcfModels.WcfSeason season);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetMatches", ReplyAction="http://tempuri.org/ILigaService/GetMatchesResponse")]
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.Models.Match>> GetMatchesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfMatch>> GetMatchesAsync(Server.WcfModels.WcfSeason season);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetMatchById", ReplyAction="http://tempuri.org/ILigaService/GetMatchByIdResponse")]
-        Server.Models.Match GetMatchById(int id);
+        Server.WcfModels.WcfMatch GetMatchById(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetMatchById", ReplyAction="http://tempuri.org/ILigaService/GetMatchByIdResponse")]
-        System.Threading.Tasks.Task<Server.Models.Match> GetMatchByIdAsync(int id);
+        System.Threading.Tasks.Task<Server.WcfModels.WcfMatch> GetMatchByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/AddMatch", ReplyAction="http://tempuri.org/ILigaService/AddMatchResponse")]
-        void AddMatch(Server.Models.Season season, Server.Models.Team homeTeam, Server.Models.Team awayTeam, int homeTeamScore, int awayTeamScore, System.DateTime dateTime);
+        void AddMatch(Server.WcfModels.WcfMatch match);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/AddMatch", ReplyAction="http://tempuri.org/ILigaService/AddMatchResponse")]
-        System.Threading.Tasks.Task AddMatchAsync(Server.Models.Season season, Server.Models.Team homeTeam, Server.Models.Team awayTeam, int homeTeamScore, int awayTeamScore, System.DateTime dateTime);
+        System.Threading.Tasks.Task AddMatchAsync(Server.WcfModels.WcfMatch match);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/EditMatch", ReplyAction="http://tempuri.org/ILigaService/EditMatchResponse")]
-        void EditMatch(Server.Models.Match match, int homeTeamScore, int awayTeamScore, System.DateTime dateTime);
+        void EditMatch(Server.WcfModels.WcfMatch match);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/EditMatch", ReplyAction="http://tempuri.org/ILigaService/EditMatchResponse")]
-        System.Threading.Tasks.Task EditMatchAsync(Server.Models.Match match, int homeTeamScore, int awayTeamScore, System.DateTime dateTime);
+        System.Threading.Tasks.Task EditMatchAsync(Server.WcfModels.WcfMatch match);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteMatch", ReplyAction="http://tempuri.org/ILigaService/DeleteMatchResponse")]
-        void DeleteMatch(Server.Models.Match match);
+        void DeleteMatch(Server.WcfModels.WcfMatch match);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteMatch", ReplyAction="http://tempuri.org/ILigaService/DeleteMatchResponse")]
-        System.Threading.Tasks.Task DeleteMatchAsync(Server.Models.Match match);
+        System.Threading.Tasks.Task DeleteMatchAsync(Server.WcfModels.WcfMatch match);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetSeasons", ReplyAction="http://tempuri.org/ILigaService/GetSeasonsResponse")]
-        System.Collections.ObjectModel.Collection<Server.Models.Season> GetSeasons();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetAllSeasons", ReplyAction="http://tempuri.org/ILigaService/GetAllSeasonsResponse")]
+        System.Collections.ObjectModel.Collection<Server.WcfModels.WcfSeason> GetAllSeasons();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetSeasons", ReplyAction="http://tempuri.org/ILigaService/GetSeasonsResponse")]
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.Models.Season>> GetSeasonsAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetSeasonById", ReplyAction="http://tempuri.org/ILigaService/GetSeasonByIdResponse")]
-        Server.Models.Season GetSeasonById(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetAllSeasons", ReplyAction="http://tempuri.org/ILigaService/GetAllSeasonsResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfSeason>> GetAllSeasonsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetSeasonById", ReplyAction="http://tempuri.org/ILigaService/GetSeasonByIdResponse")]
-        System.Threading.Tasks.Task<Server.Models.Season> GetSeasonByIdAsync(int id);
+        Server.WcfModels.WcfSeason GetSeasonById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetSeasonById", ReplyAction="http://tempuri.org/ILigaService/GetSeasonByIdResponse")]
+        System.Threading.Tasks.Task<Server.WcfModels.WcfSeason> GetSeasonByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/AddSeason", ReplyAction="http://tempuri.org/ILigaService/AddSeasonResponse")]
-        void AddSeason(string name, string description, System.DateTime dateTime);
+        void AddSeason(Server.WcfModels.WcfSeason season);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/AddSeason", ReplyAction="http://tempuri.org/ILigaService/AddSeasonResponse")]
-        System.Threading.Tasks.Task AddSeasonAsync(string name, string description, System.DateTime dateTime);
+        System.Threading.Tasks.Task AddSeasonAsync(Server.WcfModels.WcfSeason season);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/EditSeason", ReplyAction="http://tempuri.org/ILigaService/EditSeasonResponse")]
-        void EditSeason(Server.Models.Season season, string name);
+        void EditSeason(Server.WcfModels.WcfSeason season);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/EditSeason", ReplyAction="http://tempuri.org/ILigaService/EditSeasonResponse")]
-        System.Threading.Tasks.Task EditSeasonAsync(Server.Models.Season season, string name);
+        System.Threading.Tasks.Task EditSeasonAsync(Server.WcfModels.WcfSeason season);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteSeason", ReplyAction="http://tempuri.org/ILigaService/DeleteSeasonResponse")]
-        void DeleteSeason(Server.Models.Season season);
+        void DeleteSeason(Server.WcfModels.WcfSeason season);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteSeason", ReplyAction="http://tempuri.org/ILigaService/DeleteSeasonResponse")]
-        System.Threading.Tasks.Task DeleteSeasonAsync(Server.Models.Season season);
+        System.Threading.Tasks.Task DeleteSeasonAsync(Server.WcfModels.WcfSeason season);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetAllBets", ReplyAction="http://tempuri.org/ILigaService/GetAllBetsResponse")]
+        System.Collections.ObjectModel.Collection<Server.WcfModels.WcfBet> GetAllBets();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetAllBets", ReplyAction="http://tempuri.org/ILigaService/GetAllBetsResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfBet>> GetAllBetsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetBets", ReplyAction="http://tempuri.org/ILigaService/GetBetsResponse")]
-        System.Collections.ObjectModel.Collection<Server.Models.Bet> GetBets();
+        System.Collections.ObjectModel.Collection<Server.WcfModels.WcfBet> GetBets(Server.WcfModels.WcfBettor bettor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetBets", ReplyAction="http://tempuri.org/ILigaService/GetBetsResponse")]
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.Models.Bet>> GetBetsAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfBet>> GetBetsAsync(Server.WcfModels.WcfBettor bettor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetBetById", ReplyAction="http://tempuri.org/ILigaService/GetBetByIdResponse")]
-        Server.Models.Bet GetBetById(int id);
+        Server.WcfModels.WcfBet GetBetById(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetBetById", ReplyAction="http://tempuri.org/ILigaService/GetBetByIdResponse")]
-        System.Threading.Tasks.Task<Server.Models.Bet> GetBetByIdAsync(int id);
+        System.Threading.Tasks.Task<Server.WcfModels.WcfBet> GetBetByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/AddBet", ReplyAction="http://tempuri.org/ILigaService/AddBetResponse")]
-        void AddBet(Server.Models.Bettor bettor, Server.Models.Match match, int homeTeamScore, int awayTeamScore);
+        void AddBet(Server.WcfModels.WcfBet bet);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/AddBet", ReplyAction="http://tempuri.org/ILigaService/AddBetResponse")]
-        System.Threading.Tasks.Task AddBetAsync(Server.Models.Bettor bettor, Server.Models.Match match, int homeTeamScore, int awayTeamScore);
+        System.Threading.Tasks.Task AddBetAsync(Server.WcfModels.WcfBet bet);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/EditBet", ReplyAction="http://tempuri.org/ILigaService/EditBetResponse")]
-        void EditBet(Server.Models.Bet bet, int homeTeamScore, int awayTeamScore);
+        void EditBet(Server.WcfModels.WcfBet bet);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/EditBet", ReplyAction="http://tempuri.org/ILigaService/EditBetResponse")]
-        System.Threading.Tasks.Task EditBetAsync(Server.Models.Bet bet, int homeTeamScore, int awayTeamScore);
+        System.Threading.Tasks.Task EditBetAsync(Server.WcfModels.WcfBet bet);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteBet", ReplyAction="http://tempuri.org/ILigaService/DeleteBetResponse")]
-        void DeleteBet(Server.Models.Bet bet);
+        void DeleteBet(Server.WcfModels.WcfBet bet);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteBet", ReplyAction="http://tempuri.org/ILigaService/DeleteBetResponse")]
-        System.Threading.Tasks.Task DeleteBetAsync(Server.Models.Bet bet);
+        System.Threading.Tasks.Task DeleteBetAsync(Server.WcfModels.WcfBet bet);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -207,203 +231,235 @@ namespace Client.LigaServiceReference {
             return base.Channel.TestAsync(Test);
         }
         
-        public System.Collections.ObjectModel.Collection<Server.Models.Bettor> GetBettors() {
-            return base.Channel.GetBettors();
+        public System.Collections.ObjectModel.Collection<Server.WcfModels.WcfBettor> GetAllBettors() {
+            return base.Channel.GetAllBettors();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.Models.Bettor>> GetBettorsAsync() {
-            return base.Channel.GetBettorsAsync();
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfBettor>> GetAllBettorsAsync() {
+            return base.Channel.GetAllBettorsAsync();
         }
         
-        public Server.Models.Bettor GetBettorById(int id) {
+        public Server.WcfModels.WcfBettor GetBettorById(int id) {
             return base.Channel.GetBettorById(id);
         }
         
-        public System.Threading.Tasks.Task<Server.Models.Bettor> GetBettorByIdAsync(int id) {
+        public System.Threading.Tasks.Task<Server.WcfModels.WcfBettor> GetBettorByIdAsync(int id) {
             return base.Channel.GetBettorByIdAsync(id);
         }
         
-        public void AddBettor(string firstName, string lastName, string nickName) {
-            base.Channel.AddBettor(firstName, lastName, nickName);
+        public void AddBettor(Server.WcfModels.WcfBettor bettor) {
+            base.Channel.AddBettor(bettor);
         }
         
-        public System.Threading.Tasks.Task AddBettorAsync(string firstName, string lastName, string nickName) {
-            return base.Channel.AddBettorAsync(firstName, lastName, nickName);
+        public System.Threading.Tasks.Task AddBettorAsync(Server.WcfModels.WcfBettor bettor) {
+            return base.Channel.AddBettorAsync(bettor);
         }
         
-        public void EditBettor(Server.Models.Bettor bettor, string firstName, string lastName, string nickName) {
-            base.Channel.EditBettor(bettor, firstName, lastName, nickName);
+        public void EditBettor(Server.WcfModels.WcfBettor bettor) {
+            base.Channel.EditBettor(bettor);
         }
         
-        public System.Threading.Tasks.Task EditBettorAsync(Server.Models.Bettor bettor, string firstName, string lastName, string nickName) {
-            return base.Channel.EditBettorAsync(bettor, firstName, lastName, nickName);
+        public System.Threading.Tasks.Task EditBettorAsync(Server.WcfModels.WcfBettor bettor) {
+            return base.Channel.EditBettorAsync(bettor);
         }
         
-        public void DeleteBettor(Server.Models.Bettor bettor) {
+        public void DeleteBettor(Server.WcfModels.WcfBettor bettor) {
             base.Channel.DeleteBettor(bettor);
         }
         
-        public System.Threading.Tasks.Task DeleteBettorAsync(Server.Models.Bettor bettor) {
+        public System.Threading.Tasks.Task DeleteBettorAsync(Server.WcfModels.WcfBettor bettor) {
             return base.Channel.DeleteBettorAsync(bettor);
         }
         
-        public System.Collections.ObjectModel.Collection<Server.Models.Team> GetTeams() {
-            return base.Channel.GetTeams();
+        public System.Collections.ObjectModel.Collection<Server.WcfModels.WcfTeam> GetAllTeams() {
+            return base.Channel.GetAllTeams();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.Models.Team>> GetTeamsAsync() {
-            return base.Channel.GetTeamsAsync();
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfTeam>> GetAllTeamsAsync() {
+            return base.Channel.GetAllTeamsAsync();
         }
         
-        public Server.Models.Team GetTeamById(int id) {
+        public System.Collections.ObjectModel.Collection<Server.WcfModels.WcfTeam> GetTeams(Server.WcfModels.WcfSeason season) {
+            return base.Channel.GetTeams(season);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfTeam>> GetTeamsAsync(Server.WcfModels.WcfSeason season) {
+            return base.Channel.GetTeamsAsync(season);
+        }
+        
+        public Server.WcfModels.WcfTeam GetTeamById(int id) {
             return base.Channel.GetTeamById(id);
         }
         
-        public System.Threading.Tasks.Task<Server.Models.Team> GetTeamByIdAsync(int id) {
+        public System.Threading.Tasks.Task<Server.WcfModels.WcfTeam> GetTeamByIdAsync(int id) {
             return base.Channel.GetTeamByIdAsync(id);
         }
         
-        public void AddTeam(string name) {
-            base.Channel.AddTeam(name);
+        public void AddTeam(Server.WcfModels.WcfTeam team) {
+            base.Channel.AddTeam(team);
         }
         
-        public System.Threading.Tasks.Task AddTeamAsync(string name) {
-            return base.Channel.AddTeamAsync(name);
+        public System.Threading.Tasks.Task AddTeamAsync(Server.WcfModels.WcfTeam team) {
+            return base.Channel.AddTeamAsync(team);
         }
         
-        public void EditTeam(Server.Models.Team team, string name) {
-            base.Channel.EditTeam(team, name);
+        public void EditTeam(Server.WcfModels.WcfTeam team) {
+            base.Channel.EditTeam(team);
         }
         
-        public System.Threading.Tasks.Task EditTeamAsync(Server.Models.Team team, string name) {
-            return base.Channel.EditTeamAsync(team, name);
+        public System.Threading.Tasks.Task EditTeamAsync(Server.WcfModels.WcfTeam team) {
+            return base.Channel.EditTeamAsync(team);
         }
         
-        public void DeleteTeam(Server.Models.Team team) {
+        public void DeleteTeam(Server.WcfModels.WcfTeam team) {
             base.Channel.DeleteTeam(team);
         }
         
-        public System.Threading.Tasks.Task DeleteTeamAsync(Server.Models.Team team) {
+        public System.Threading.Tasks.Task DeleteTeamAsync(Server.WcfModels.WcfTeam team) {
             return base.Channel.DeleteTeamAsync(team);
         }
         
-        public System.Collections.ObjectModel.Collection<Server.Models.Match> GetMatches() {
-            return base.Channel.GetMatches();
+        public void AddTeamToSeason(Server.WcfModels.WcfTeam team, Server.WcfModels.WcfSeason season) {
+            base.Channel.AddTeamToSeason(team, season);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.Models.Match>> GetMatchesAsync() {
-            return base.Channel.GetMatchesAsync();
+        public System.Threading.Tasks.Task AddTeamToSeasonAsync(Server.WcfModels.WcfTeam team, Server.WcfModels.WcfSeason season) {
+            return base.Channel.AddTeamToSeasonAsync(team, season);
         }
         
-        public Server.Models.Match GetMatchById(int id) {
+        public System.Collections.ObjectModel.Collection<Server.WcfModels.WcfMatch> GetAllMatches() {
+            return base.Channel.GetAllMatches();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfMatch>> GetAllMatchesAsync() {
+            return base.Channel.GetAllMatchesAsync();
+        }
+        
+        public System.Collections.ObjectModel.Collection<Server.WcfModels.WcfMatch> GetMatches(Server.WcfModels.WcfSeason season) {
+            return base.Channel.GetMatches(season);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfMatch>> GetMatchesAsync(Server.WcfModels.WcfSeason season) {
+            return base.Channel.GetMatchesAsync(season);
+        }
+        
+        public Server.WcfModels.WcfMatch GetMatchById(int id) {
             return base.Channel.GetMatchById(id);
         }
         
-        public System.Threading.Tasks.Task<Server.Models.Match> GetMatchByIdAsync(int id) {
+        public System.Threading.Tasks.Task<Server.WcfModels.WcfMatch> GetMatchByIdAsync(int id) {
             return base.Channel.GetMatchByIdAsync(id);
         }
         
-        public void AddMatch(Server.Models.Season season, Server.Models.Team homeTeam, Server.Models.Team awayTeam, int homeTeamScore, int awayTeamScore, System.DateTime dateTime) {
-            base.Channel.AddMatch(season, homeTeam, awayTeam, homeTeamScore, awayTeamScore, dateTime);
+        public void AddMatch(Server.WcfModels.WcfMatch match) {
+            base.Channel.AddMatch(match);
         }
         
-        public System.Threading.Tasks.Task AddMatchAsync(Server.Models.Season season, Server.Models.Team homeTeam, Server.Models.Team awayTeam, int homeTeamScore, int awayTeamScore, System.DateTime dateTime) {
-            return base.Channel.AddMatchAsync(season, homeTeam, awayTeam, homeTeamScore, awayTeamScore, dateTime);
+        public System.Threading.Tasks.Task AddMatchAsync(Server.WcfModels.WcfMatch match) {
+            return base.Channel.AddMatchAsync(match);
         }
         
-        public void EditMatch(Server.Models.Match match, int homeTeamScore, int awayTeamScore, System.DateTime dateTime) {
-            base.Channel.EditMatch(match, homeTeamScore, awayTeamScore, dateTime);
+        public void EditMatch(Server.WcfModels.WcfMatch match) {
+            base.Channel.EditMatch(match);
         }
         
-        public System.Threading.Tasks.Task EditMatchAsync(Server.Models.Match match, int homeTeamScore, int awayTeamScore, System.DateTime dateTime) {
-            return base.Channel.EditMatchAsync(match, homeTeamScore, awayTeamScore, dateTime);
+        public System.Threading.Tasks.Task EditMatchAsync(Server.WcfModels.WcfMatch match) {
+            return base.Channel.EditMatchAsync(match);
         }
         
-        public void DeleteMatch(Server.Models.Match match) {
+        public void DeleteMatch(Server.WcfModels.WcfMatch match) {
             base.Channel.DeleteMatch(match);
         }
         
-        public System.Threading.Tasks.Task DeleteMatchAsync(Server.Models.Match match) {
+        public System.Threading.Tasks.Task DeleteMatchAsync(Server.WcfModels.WcfMatch match) {
             return base.Channel.DeleteMatchAsync(match);
         }
         
-        public System.Collections.ObjectModel.Collection<Server.Models.Season> GetSeasons() {
-            return base.Channel.GetSeasons();
+        public System.Collections.ObjectModel.Collection<Server.WcfModels.WcfSeason> GetAllSeasons() {
+            return base.Channel.GetAllSeasons();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.Models.Season>> GetSeasonsAsync() {
-            return base.Channel.GetSeasonsAsync();
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfSeason>> GetAllSeasonsAsync() {
+            return base.Channel.GetAllSeasonsAsync();
         }
         
-        public Server.Models.Season GetSeasonById(int id) {
+        public Server.WcfModels.WcfSeason GetSeasonById(int id) {
             return base.Channel.GetSeasonById(id);
         }
         
-        public System.Threading.Tasks.Task<Server.Models.Season> GetSeasonByIdAsync(int id) {
+        public System.Threading.Tasks.Task<Server.WcfModels.WcfSeason> GetSeasonByIdAsync(int id) {
             return base.Channel.GetSeasonByIdAsync(id);
         }
         
-        public void AddSeason(string name, string description, System.DateTime dateTime) {
-            base.Channel.AddSeason(name, description, dateTime);
+        public void AddSeason(Server.WcfModels.WcfSeason season) {
+            base.Channel.AddSeason(season);
         }
         
-        public System.Threading.Tasks.Task AddSeasonAsync(string name, string description, System.DateTime dateTime) {
-            return base.Channel.AddSeasonAsync(name, description, dateTime);
+        public System.Threading.Tasks.Task AddSeasonAsync(Server.WcfModels.WcfSeason season) {
+            return base.Channel.AddSeasonAsync(season);
         }
         
-        public void EditSeason(Server.Models.Season season, string name) {
-            base.Channel.EditSeason(season, name);
+        public void EditSeason(Server.WcfModels.WcfSeason season) {
+            base.Channel.EditSeason(season);
         }
         
-        public System.Threading.Tasks.Task EditSeasonAsync(Server.Models.Season season, string name) {
-            return base.Channel.EditSeasonAsync(season, name);
+        public System.Threading.Tasks.Task EditSeasonAsync(Server.WcfModels.WcfSeason season) {
+            return base.Channel.EditSeasonAsync(season);
         }
         
-        public void DeleteSeason(Server.Models.Season season) {
+        public void DeleteSeason(Server.WcfModels.WcfSeason season) {
             base.Channel.DeleteSeason(season);
         }
         
-        public System.Threading.Tasks.Task DeleteSeasonAsync(Server.Models.Season season) {
+        public System.Threading.Tasks.Task DeleteSeasonAsync(Server.WcfModels.WcfSeason season) {
             return base.Channel.DeleteSeasonAsync(season);
         }
         
-        public System.Collections.ObjectModel.Collection<Server.Models.Bet> GetBets() {
-            return base.Channel.GetBets();
+        public System.Collections.ObjectModel.Collection<Server.WcfModels.WcfBet> GetAllBets() {
+            return base.Channel.GetAllBets();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.Models.Bet>> GetBetsAsync() {
-            return base.Channel.GetBetsAsync();
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfBet>> GetAllBetsAsync() {
+            return base.Channel.GetAllBetsAsync();
         }
         
-        public Server.Models.Bet GetBetById(int id) {
+        public System.Collections.ObjectModel.Collection<Server.WcfModels.WcfBet> GetBets(Server.WcfModels.WcfBettor bettor) {
+            return base.Channel.GetBets(bettor);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfBet>> GetBetsAsync(Server.WcfModels.WcfBettor bettor) {
+            return base.Channel.GetBetsAsync(bettor);
+        }
+        
+        public Server.WcfModels.WcfBet GetBetById(int id) {
             return base.Channel.GetBetById(id);
         }
         
-        public System.Threading.Tasks.Task<Server.Models.Bet> GetBetByIdAsync(int id) {
+        public System.Threading.Tasks.Task<Server.WcfModels.WcfBet> GetBetByIdAsync(int id) {
             return base.Channel.GetBetByIdAsync(id);
         }
         
-        public void AddBet(Server.Models.Bettor bettor, Server.Models.Match match, int homeTeamScore, int awayTeamScore) {
-            base.Channel.AddBet(bettor, match, homeTeamScore, awayTeamScore);
+        public void AddBet(Server.WcfModels.WcfBet bet) {
+            base.Channel.AddBet(bet);
         }
         
-        public System.Threading.Tasks.Task AddBetAsync(Server.Models.Bettor bettor, Server.Models.Match match, int homeTeamScore, int awayTeamScore) {
-            return base.Channel.AddBetAsync(bettor, match, homeTeamScore, awayTeamScore);
+        public System.Threading.Tasks.Task AddBetAsync(Server.WcfModels.WcfBet bet) {
+            return base.Channel.AddBetAsync(bet);
         }
         
-        public void EditBet(Server.Models.Bet bet, int homeTeamScore, int awayTeamScore) {
-            base.Channel.EditBet(bet, homeTeamScore, awayTeamScore);
+        public void EditBet(Server.WcfModels.WcfBet bet) {
+            base.Channel.EditBet(bet);
         }
         
-        public System.Threading.Tasks.Task EditBetAsync(Server.Models.Bet bet, int homeTeamScore, int awayTeamScore) {
-            return base.Channel.EditBetAsync(bet, homeTeamScore, awayTeamScore);
+        public System.Threading.Tasks.Task EditBetAsync(Server.WcfModels.WcfBet bet) {
+            return base.Channel.EditBetAsync(bet);
         }
         
-        public void DeleteBet(Server.Models.Bet bet) {
+        public void DeleteBet(Server.WcfModels.WcfBet bet) {
             base.Channel.DeleteBet(bet);
         }
         
-        public System.Threading.Tasks.Task DeleteBetAsync(Server.Models.Bet bet) {
+        public System.Threading.Tasks.Task DeleteBetAsync(Server.WcfModels.WcfBet bet) {
             return base.Channel.DeleteBetAsync(bet);
         }
     }

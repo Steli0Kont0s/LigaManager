@@ -1,5 +1,5 @@
 ﻿using Client.Framework;
-using Server.Models;
+using Server.WcfModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,20 +12,34 @@ namespace Client.ViewModels
 {
 	class MainWindowViewModel : ViewModelBase
 	{
-		private ObservableCollection<Bettor> mBettors;
-		private Bettor mSelectedBettor;
-		private ObservableCollection<Team> mTeams;
-		private Team mSelectedTeam;
-		private ObservableCollection<Season> mSeasons;
-		private Season mSelectedSeason;
+		private ObservableCollection<WcfBettor> mBettors;
+		private WcfBettor mSelectedBettor;
+		private ObservableCollection<WcfTeam> mTeams;
+		private WcfTeam mSelectedTeam;
+		private ObservableCollection<WcfSeason> mSeasons;
+		private WcfSeason mSelectedSeason;
+		private int mSelectedTab;
 
 		public ICommand ButtonAdd { get; set; }
 		public ICommand ButtonDelete { get; set; }
 		public ICommand ButtonEdit { get; set; }
 
-		// Bettor
+		// Selected Tab 0:Bettors 1:Teams 2:Seasons
+		public int SelectedTab
+		{
+			get { return mSelectedTab; }
 
-		public ObservableCollection<Bettor> Bettors
+			set
+			{
+				if (mSelectedTab == value)
+					return;
+				mSelectedTab = value;
+				OnPropertyChanged("SelectedTab");
+			}
+		}
+
+		// Bettor
+		public ObservableCollection<WcfBettor> Bettors
 		{
 			get { return mBettors; }
 
@@ -38,7 +52,7 @@ namespace Client.ViewModels
 			}
 		}
 
-		public Bettor SelectedBettor
+		public WcfBettor SelectedBettor
 		{
 			get { return mSelectedBettor; }
 
@@ -53,7 +67,7 @@ namespace Client.ViewModels
 
 		// Team
 
-		public ObservableCollection<Team> Teams
+		public ObservableCollection<WcfTeam> Teams
 		{
 			get { return mTeams; }
 
@@ -66,7 +80,7 @@ namespace Client.ViewModels
 			}
 		}
 
-		public Team SelectedTeam
+		public WcfTeam SelectedTeam
 		{
 			get { return mSelectedTeam; }
 
@@ -81,7 +95,7 @@ namespace Client.ViewModels
 
 		// Season
 
-		public ObservableCollection<Season> Seasons
+		public ObservableCollection<WcfSeason> Seasons
 		{
 			get { return mSeasons; }
 
@@ -94,7 +108,7 @@ namespace Client.ViewModels
 			}
 		}
 
-		public Season SelectedSeason
+		public WcfSeason SelectedSeason
 		{
 			get { return mSelectedSeason; }
 

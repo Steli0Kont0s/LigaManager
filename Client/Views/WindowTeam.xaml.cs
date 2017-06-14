@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Client.Views
 {
 	/// <summary>
-	/// Interaction logic for WindowAdd.xaml
+	/// Interaction logic for WindowTeam.xaml
 	/// </summary>
-	public partial class WindowAdd : Window
+	public partial class WindowTeam : Window
 	{
-		public WindowAdd()
+		public WindowTeam()
 		{
 			InitializeComponent();
 		}

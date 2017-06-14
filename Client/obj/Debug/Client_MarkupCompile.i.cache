@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\App.xaml
-31771716583
+41482456733
 
-19-1736017003
+24-1356512719
 16-1083944198
-Views\CantDeleteBettor.xaml;Views\MainWindow.xaml;Views\WindowAdd.xaml;
+Views\CantDeleteBettor.xaml;Views\MainWindow.xaml;Views\WindowBettor.xaml;Views\WindowTeam.xaml;
 
-True
+False
 

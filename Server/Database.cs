@@ -64,14 +64,14 @@ namespace Server
 
 			if (bettor.Nickname.Equals(nickname))
 			{
-				mBettorRepository.Save(bettor);
+				mBettorRepository.Update(bettor);
 			}
 			else
 			{
 				if (mBettorRepository.GetByPropertyIgnoreCase("Nickname", nickname).Count == 0)
 				{
 					bettor.Nickname = nickname;
-					mBettorRepository.Save(bettor);
+					mBettorRepository.Update(bettor);
 				}
 			}
 		}
@@ -124,8 +124,11 @@ namespace Server
 
 		public static void EditTeam(Team team, string name)
 		{
-			team.Name = name;
-			mTeamRepository.Save(team);
+			if (mTeamRepository.GetByPropertyIgnoreCase("Name", name).Count == 0)
+			{
+				team.Name = name;
+				mTeamRepository.Update(team);
+			}
 		}
 
 		// Database Interactions with Matches
@@ -158,7 +161,7 @@ namespace Server
 			match.AwayTeamScore = awayTeamScore;
 			match.HomeTeamScore = homeTeamScore;
 			match.Date = dateTime;
-			mMatchRepository.Save(match);
+			mMatchRepository.Update(match);
 		}
 
 		public static void DeleteMatch(Match match)
@@ -184,13 +187,16 @@ namespace Server
 			Season newSeason = new Season();
 			newSeason.Name = name;
 			newSeason.Description = description;
+			newSeason.StartDate = startDate;
 			// Sequence kommt hier her
 		}
 
-		public static void EditSeason(Season season, string name)
+		public static void EditSeason(Season season, string name, string description, DateTime startDate)
 		{
 			season.Name = name;
-			mSeasonRepository.Save(season);
+			season.Description = description;
+			season.StartDate = startDate;
+			mSeasonRepository.Update(season);
 		}
 
 		public static void DeleteSeason(Season season)
@@ -253,7 +259,7 @@ namespace Server
 			bet.HomeTeamScore = homeTeamScore;
 			bet.AwayTeamScore = awayTeamScore;
 			bet.Date = DateTime.Now;
-			mBetRepository.Save(bet);
+			mBetRepository.Update(bet);
 		}
 
 		public static void DeleteBet(Bet bet)

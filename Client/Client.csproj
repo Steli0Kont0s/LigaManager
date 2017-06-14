@@ -62,10 +62,13 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controller\MainWindowController.cs" />
-    <Compile Include="Controller\WindowAddController.cs" />
-    <Compile Include="ViewModels\CantDeleteBettorViewModel.cs" />
+    <Compile Include="Controller\WindowEditTeamController.cs" />
+    <Compile Include="Controller\WindowAddTeamController.cs" />
+    <Compile Include="Controller\WindowEditBettorController.cs" />
+    <Compile Include="Controller\WindowAddBettorController.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\WindowAddViewModel.cs" />
+    <Compile Include="ViewModels\WindowTeamViewModel.cs" />
+    <Compile Include="ViewModels\WindowBettorViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -78,9 +81,13 @@
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WindowAdd.xaml.cs">
-      <DependentUpon>WindowAdd.xaml</DependentUpon>
+    <Compile Include="Views\WindowBettor.xaml.cs">
+      <DependentUpon>WindowBettor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WindowTeam.xaml.cs">
+      <DependentUpon>WindowTeam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WcfHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -115,6 +122,11 @@
     <None Include="Properties\DataSources\Server.Models.Match.datasource" />
     <None Include="Properties\DataSources\Server.Models.Season.datasource" />
     <None Include="Properties\DataSources\Server.Models.Team.datasource" />
+    <None Include="Properties\DataSources\Server.WcfModels.WcfBet.datasource" />
+    <None Include="Properties\DataSources\Server.WcfModels.WcfBettor.datasource" />
+    <None Include="Properties\DataSources\Server.WcfModels.WcfMatch.datasource" />
+    <None Include="Properties\DataSources\Server.WcfModels.WcfSeason.datasource" />
+    <None Include="Properties\DataSources\Server.WcfModels.WcfTeam.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -141,7 +153,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WindowAdd.xaml">
+    <Page Include="Views\WindowBettor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowTeam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

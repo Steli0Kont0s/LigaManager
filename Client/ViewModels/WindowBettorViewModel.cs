@@ -1,5 +1,5 @@
 ﻿using Client.Framework;
-using Server.Models;
+using Server.WcfModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,47 +9,48 @@ using System.Windows.Input;
 
 namespace Client.ViewModels
 {
-	class WindowAddViewModel : ViewModelBase
+	class WindowBettorViewModel : ViewModelBase
 	{
-		public Bettor Model { get; set; }
+		public WcfBettor Bettor { get; set; }
+		public string Title { get; set; }
 		public ICommand OkCommand { get; set; }
 		public ICommand CancelCommand { get; set; }
 
 		public string Firstname
 		{
-			get { return Model.Firstname; }
+			get { return Bettor.Firstname; }
 
 			set
 			{
-				if (Model.Firstname == value)
+				if (Bettor.Firstname == value)
 					return;
-				Model.Firstname = value;
+				Bettor.Firstname = value;
 				OnPropertyChanged("Firstname");
 			}
 		}
 
 		public string Lastname
 		{
-			get { return Model.Lastname; }
+			get { return Bettor.Lastname; }
 
 			set
 			{
-				if (Model.Lastname == value)
+				if (Bettor.Lastname == value)
 					return;
-				Model.Lastname = value;
+				Bettor.Lastname = value;
 				OnPropertyChanged("Lastname");
 			}
 		}
 
 		public string Nickname
 		{
-			get { return Model.Nickname; }
+			get { return Bettor.Nickname; }
 
 			set
 			{
-				if (Model.Nickname == value)
+				if (Bettor.Nickname == value)
 					return;
-				Model.Nickname = value;
+				Bettor.Nickname = value;
 				OnPropertyChanged("Nickname");
 			}
 		}
