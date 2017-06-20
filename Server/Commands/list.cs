@@ -52,7 +52,7 @@ namespace Server.Commands
 				Console.WriteLine(season.Name);
 				foreach (SeasonsToTeamsRelation relation in season.TeamRelations)
 				{
-					Console.WriteLine(relation.Team.Name);
+					//Console.WriteLine(relation.Team.Name);
 				}
 				
 			}

@@ -93,6 +93,12 @@ namespace Client.LigaServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/AddTeamToSeason", ReplyAction="http://tempuri.org/ILigaService/AddTeamToSeasonResponse")]
         System.Threading.Tasks.Task AddTeamToSeasonAsync(Server.WcfModels.WcfTeam team, Server.WcfModels.WcfSeason season);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteTeamFromSeason", ReplyAction="http://tempuri.org/ILigaService/DeleteTeamFromSeasonResponse")]
+        void DeleteTeamFromSeason(Server.WcfModels.WcfTeam team, Server.WcfModels.WcfSeason season);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteTeamFromSeason", ReplyAction="http://tempuri.org/ILigaService/DeleteTeamFromSeasonResponse")]
+        System.Threading.Tasks.Task DeleteTeamFromSeasonAsync(Server.WcfModels.WcfTeam team, Server.WcfModels.WcfSeason season);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetAllMatches", ReplyAction="http://tempuri.org/ILigaService/GetAllMatchesResponse")]
         System.Collections.ObjectModel.Collection<Server.WcfModels.WcfMatch> GetAllMatches();
         
@@ -194,6 +200,30 @@ namespace Client.LigaServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteBet", ReplyAction="http://tempuri.org/ILigaService/DeleteBetResponse")]
         System.Threading.Tasks.Task DeleteBetAsync(Server.WcfModels.WcfBet bet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetAllRelations", ReplyAction="http://tempuri.org/ILigaService/GetAllRelationsResponse")]
+        System.Collections.ObjectModel.Collection<Server.WcfModels.WcfRelation> GetAllRelations();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetAllRelations", ReplyAction="http://tempuri.org/ILigaService/GetAllRelationsResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfRelation>> GetAllRelationsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetRelationsByTeam", ReplyAction="http://tempuri.org/ILigaService/GetRelationsByTeamResponse")]
+        System.Collections.ObjectModel.Collection<Server.WcfModels.WcfRelation> GetRelationsByTeam(Server.WcfModels.WcfTeam team);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetRelationsByTeam", ReplyAction="http://tempuri.org/ILigaService/GetRelationsByTeamResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfRelation>> GetRelationsByTeamAsync(Server.WcfModels.WcfTeam team);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetRelationsBySeason", ReplyAction="http://tempuri.org/ILigaService/GetRelationsBySeasonResponse")]
+        System.Collections.ObjectModel.Collection<Server.WcfModels.WcfRelation> GetRelationsBySeason(Server.WcfModels.WcfSeason season);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetRelationsBySeason", ReplyAction="http://tempuri.org/ILigaService/GetRelationsBySeasonResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfRelation>> GetRelationsBySeasonAsync(Server.WcfModels.WcfSeason season);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteRelation", ReplyAction="http://tempuri.org/ILigaService/DeleteRelationResponse")]
+        void DeleteRelation(Server.WcfModels.WcfRelation relation);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteRelation", ReplyAction="http://tempuri.org/ILigaService/DeleteRelationResponse")]
+        System.Threading.Tasks.Task DeleteRelationAsync(Server.WcfModels.WcfRelation relation);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -325,6 +355,14 @@ namespace Client.LigaServiceReference {
         
         public System.Threading.Tasks.Task AddTeamToSeasonAsync(Server.WcfModels.WcfTeam team, Server.WcfModels.WcfSeason season) {
             return base.Channel.AddTeamToSeasonAsync(team, season);
+        }
+        
+        public void DeleteTeamFromSeason(Server.WcfModels.WcfTeam team, Server.WcfModels.WcfSeason season) {
+            base.Channel.DeleteTeamFromSeason(team, season);
+        }
+        
+        public System.Threading.Tasks.Task DeleteTeamFromSeasonAsync(Server.WcfModels.WcfTeam team, Server.WcfModels.WcfSeason season) {
+            return base.Channel.DeleteTeamFromSeasonAsync(team, season);
         }
         
         public System.Collections.ObjectModel.Collection<Server.WcfModels.WcfMatch> GetAllMatches() {
@@ -461,6 +499,38 @@ namespace Client.LigaServiceReference {
         
         public System.Threading.Tasks.Task DeleteBetAsync(Server.WcfModels.WcfBet bet) {
             return base.Channel.DeleteBetAsync(bet);
+        }
+        
+        public System.Collections.ObjectModel.Collection<Server.WcfModels.WcfRelation> GetAllRelations() {
+            return base.Channel.GetAllRelations();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfRelation>> GetAllRelationsAsync() {
+            return base.Channel.GetAllRelationsAsync();
+        }
+        
+        public System.Collections.ObjectModel.Collection<Server.WcfModels.WcfRelation> GetRelationsByTeam(Server.WcfModels.WcfTeam team) {
+            return base.Channel.GetRelationsByTeam(team);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfRelation>> GetRelationsByTeamAsync(Server.WcfModels.WcfTeam team) {
+            return base.Channel.GetRelationsByTeamAsync(team);
+        }
+        
+        public System.Collections.ObjectModel.Collection<Server.WcfModels.WcfRelation> GetRelationsBySeason(Server.WcfModels.WcfSeason season) {
+            return base.Channel.GetRelationsBySeason(season);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<Server.WcfModels.WcfRelation>> GetRelationsBySeasonAsync(Server.WcfModels.WcfSeason season) {
+            return base.Channel.GetRelationsBySeasonAsync(season);
+        }
+        
+        public void DeleteRelation(Server.WcfModels.WcfRelation relation) {
+            base.Channel.DeleteRelation(relation);
+        }
+        
+        public System.Threading.Tasks.Task DeleteRelationAsync(Server.WcfModels.WcfRelation relation) {
+            return base.Channel.DeleteRelationAsync(relation);
         }
     }
 }

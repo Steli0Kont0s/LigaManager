@@ -1,0 +1,22 @@
+﻿<Window x:Class="Client.Views.WindowAddMatch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client.Views"
+        mc:Ignorable="d"
+        Title="WindowAddMatch" Height="211.652" Width="231.992">
+    <Grid>
+		<StackPanel Orientation="Vertical" DockPanel.Dock="Right" Margin="5">
+			<Label Content="Home Team:" />
+			<ComboBox Margin="0,0,0,5"/>
+			<Label Content="Away Team:"/>
+			<ComboBox Margin="0,0,0,5"/>
+			<DatePicker Margin="0,5,0,5"/>
+			<StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
+				<Button Content="OK" Width="100" Margin="5" Command="{Binding OkCommand}" />
+				<Button Content="Abbrechen" Width="100" Margin="5" Command="{Binding CancelCommand}" />
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</Window>

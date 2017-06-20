@@ -85,6 +85,12 @@
   <wsdl:message name="ILigaService_AddTeamToSeason_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddTeamToSeasonResponse" />
   </wsdl:message>
+  <wsdl:message name="ILigaService_DeleteTeamFromSeason_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTeamFromSeason" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_DeleteTeamFromSeason_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTeamFromSeasonResponse" />
+  </wsdl:message>
   <wsdl:message name="ILigaService_GetAllMatches_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllMatches" />
   </wsdl:message>
@@ -187,6 +193,30 @@
   <wsdl:message name="ILigaService_DeleteBet_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteBetResponse" />
   </wsdl:message>
+  <wsdl:message name="ILigaService_GetAllRelations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRelations" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetAllRelations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRelationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetRelationsByTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRelationsByTeam" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetRelationsByTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRelationsByTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetRelationsBySeason_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRelationsBySeason" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GetRelationsBySeason_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRelationsBySeasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_DeleteRelation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRelation" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_DeleteRelation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRelationResponse" />
+  </wsdl:message>
   <wsdl:portType name="ILigaService">
     <wsdl:operation name="Test">
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/Test" message="tns:ILigaService_Test_InputMessage" />
@@ -239,6 +269,10 @@
     <wsdl:operation name="AddTeamToSeason">
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/AddTeamToSeason" message="tns:ILigaService_AddTeamToSeason_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/AddTeamToSeasonResponse" message="tns:ILigaService_AddTeamToSeason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTeamFromSeason">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/DeleteTeamFromSeason" message="tns:ILigaService_DeleteTeamFromSeason_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/DeleteTeamFromSeasonResponse" message="tns:ILigaService_DeleteTeamFromSeason_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllMatches">
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetAllMatches" message="tns:ILigaService_GetAllMatches_InputMessage" />
@@ -307,6 +341,22 @@
     <wsdl:operation name="DeleteBet">
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/DeleteBet" message="tns:ILigaService_DeleteBet_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/DeleteBetResponse" message="tns:ILigaService_DeleteBet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRelations">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetAllRelations" message="tns:ILigaService_GetAllRelations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetAllRelationsResponse" message="tns:ILigaService_GetAllRelations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRelationsByTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetRelationsByTeam" message="tns:ILigaService_GetRelationsByTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetRelationsByTeamResponse" message="tns:ILigaService_GetRelationsByTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRelationsBySeason">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetRelationsBySeason" message="tns:ILigaService_GetRelationsBySeason_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GetRelationsBySeasonResponse" message="tns:ILigaService_GetRelationsBySeason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRelation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/DeleteRelation" message="tns:ILigaService_DeleteRelation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/DeleteRelationResponse" message="tns:ILigaService_DeleteRelation_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILigaService" type="tns:ILigaService">
@@ -421,6 +471,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddTeamToSeason">
       <soap:operation soapAction="http://tempuri.org/ILigaService/AddTeamToSeason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTeamFromSeason">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/DeleteTeamFromSeason" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -574,6 +633,42 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteBet">
       <soap:operation soapAction="http://tempuri.org/ILigaService/DeleteBet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRelations">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetAllRelations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelationsByTeam">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetRelationsByTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelationsBySeason">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GetRelationsBySeason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRelation">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/DeleteRelation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

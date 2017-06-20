@@ -59,6 +59,9 @@ namespace Server
 		[OperationContract]
 		void AddTeamToSeason(WcfTeam team, WcfSeason season);
 
+		[OperationContract]
+		void DeleteTeamFromSeason(WcfTeam team, WcfSeason season);
+
 
 
 
@@ -118,5 +121,19 @@ namespace Server
 
 		[OperationContract]
 		void DeleteBet(WcfBet bet);
+
+
+
+		[OperationContract]
+		List<WcfRelation> GetAllRelations();
+
+		[OperationContract]
+		List<WcfRelation> GetRelationsByTeam(WcfTeam team);
+
+		[OperationContract]
+		List<WcfRelation> GetRelationsBySeason(WcfSeason season);
+
+		[OperationContract]
+		void DeleteRelation(WcfRelation relation);
 	}
 }

@@ -82,4 +82,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WcfBet" nillable="true" type="tns:WcfBet" />
+  <xs:complexType name="ArrayOfWcfRelation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WcfRelation" nillable="true" type="tns:WcfRelation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWcfRelation" nillable="true" type="tns:ArrayOfWcfRelation" />
+  <xs:complexType name="WcfRelation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="SeasonId" type="xs:int" />
+      <xs:element minOccurs="0" name="TeamId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WcfRelation" nillable="true" type="tns:WcfRelation" />
 </xs:schema>

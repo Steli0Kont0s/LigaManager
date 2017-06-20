@@ -63,7 +63,6 @@
     <Compile Include="Database.cs" />
     <Compile Include="Framework\NHibernateHelper.cs" />
     <Compile Include="Framework\Repository.cs" />
-    <Compile Include="Framework\ViewModelBase.cs" />
     <Compile Include="ILigaService.cs" />
     <Compile Include="Mappings\BetMap.cs" />
     <Compile Include="Mappings\BettorMap.cs" />
@@ -83,6 +82,7 @@
     <Compile Include="WcfModels\WcfBet.cs" />
     <Compile Include="WcfModels\WcfBettor.cs" />
     <Compile Include="WcfModels\WcfMatch.cs" />
+    <Compile Include="WcfModels\WcfRelation.cs" />
     <Compile Include="WcfModels\WcfSeason.cs" />
     <Compile Include="WcfModels\WcfTeam.cs" />
   </ItemGroup>

@@ -166,6 +166,19 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="DeleteTeamFromSeason">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="team" nillable="true" type="q15:WcfTeam" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="season" nillable="true" type="q16:WcfSeason" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTeamFromSeasonResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllMatches">
     <xs:complexType>
       <xs:sequence />
@@ -174,21 +187,21 @@
   <xs:element name="GetAllMatchesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetAllMatchesResult" nillable="true" type="q15:ArrayOfWcfMatch" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetAllMatchesResult" nillable="true" type="q17:ArrayOfWcfMatch" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetMatches">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="season" nillable="true" type="q16:WcfSeason" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="season" nillable="true" type="q18:WcfSeason" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetMatchesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetMatchesResult" nillable="true" type="q17:ArrayOfWcfMatch" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetMatchesResult" nillable="true" type="q19:ArrayOfWcfMatch" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -202,14 +215,14 @@
   <xs:element name="GetMatchByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetMatchByIdResult" nillable="true" type="q18:WcfMatch" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetMatchByIdResult" nillable="true" type="q20:WcfMatch" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddMatch">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="match" nillable="true" type="q19:WcfMatch" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="match" nillable="true" type="q21:WcfMatch" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -221,7 +234,7 @@
   <xs:element name="EditMatch">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="match" nillable="true" type="q20:WcfMatch" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="match" nillable="true" type="q22:WcfMatch" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -233,7 +246,7 @@
   <xs:element name="DeleteMatch">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="match" nillable="true" type="q21:WcfMatch" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="match" nillable="true" type="q23:WcfMatch" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -250,7 +263,7 @@
   <xs:element name="GetAllSeasonsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetAllSeasonsResult" nillable="true" type="q22:ArrayOfWcfSeason" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetAllSeasonsResult" nillable="true" type="q24:ArrayOfWcfSeason" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -264,14 +277,14 @@
   <xs:element name="GetSeasonByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetSeasonByIdResult" nillable="true" type="q23:WcfSeason" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetSeasonByIdResult" nillable="true" type="q25:WcfSeason" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddSeason">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="season" nillable="true" type="q24:WcfSeason" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="season" nillable="true" type="q26:WcfSeason" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -283,7 +296,7 @@
   <xs:element name="EditSeason">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="season" nillable="true" type="q25:WcfSeason" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="season" nillable="true" type="q27:WcfSeason" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -295,7 +308,7 @@
   <xs:element name="DeleteSeason">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="season" nillable="true" type="q26:WcfSeason" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="season" nillable="true" type="q28:WcfSeason" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -312,21 +325,21 @@
   <xs:element name="GetAllBetsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetAllBetsResult" nillable="true" type="q27:ArrayOfWcfBet" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetAllBetsResult" nillable="true" type="q29:ArrayOfWcfBet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetBets">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="bettor" nillable="true" type="q28:WcfBettor" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="bettor" nillable="true" type="q30:WcfBettor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetBetsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetBetsResult" nillable="true" type="q29:ArrayOfWcfBet" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetBetsResult" nillable="true" type="q31:ArrayOfWcfBet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -340,14 +353,14 @@
   <xs:element name="GetBetByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetBetByIdResult" nillable="true" type="q30:WcfBet" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetBetByIdResult" nillable="true" type="q32:WcfBet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddBet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="bet" nillable="true" type="q31:WcfBet" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="bet" nillable="true" type="q33:WcfBet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -359,7 +372,7 @@
   <xs:element name="EditBet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="bet" nillable="true" type="q32:WcfBet" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="bet" nillable="true" type="q34:WcfBet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -371,11 +384,63 @@
   <xs:element name="DeleteBet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="bet" nillable="true" type="q33:WcfBet" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="bet" nillable="true" type="q35:WcfBet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteBetResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRelations">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRelationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetAllRelationsResult" nillable="true" type="q36:ArrayOfWcfRelation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRelationsByTeam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="team" nillable="true" type="q37:WcfTeam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRelationsByTeamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetRelationsByTeamResult" nillable="true" type="q38:ArrayOfWcfRelation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRelationsBySeason">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="season" nillable="true" type="q39:WcfSeason" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRelationsBySeasonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="GetRelationsBySeasonResult" nillable="true" type="q40:ArrayOfWcfRelation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRelation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Server.WcfModels" minOccurs="0" name="relation" nillable="true" type="q41:WcfRelation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRelationResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

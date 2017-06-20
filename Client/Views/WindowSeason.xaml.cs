@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Client.Views
 {
 	/// <summary>
-	/// Interaction logic for CantDeleteBettor.xaml
+	/// Interaction logic for WindowSeason.xaml
 	/// </summary>
-	public partial class CantDeleteBettor : Window
+	public partial class WindowSeason : Window
 	{
-		public CantDeleteBettor()
+		public WindowSeason()
 		{
 			InitializeComponent();
 		}

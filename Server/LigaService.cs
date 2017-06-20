@@ -68,7 +68,7 @@ namespace Server
 			List<WcfTeam> teams = new List<WcfTeam>();
 			foreach (SeasonsToTeamsRelation relation in Database.GetSeasonById(season.Id).TeamRelations)
 			{
-				teams.Add(new WcfTeam(relation.Team));
+				//teams.Add(new WcfTeam(relation.Team));
 			}
 			return teams;
 		}
@@ -98,6 +98,10 @@ namespace Server
 			Database.AddSeasonsToTeamsRelation(Database.GetTeamById(team.Id), Database.GetSeasonById(season.Id));
 		}
 
+		public void DeleteTeamFromSeason(WcfTeam team, WcfSeason season)
+		{
+			Database.AddSeasonsToTeamsRelation(Database.GetTeamById(team.Id), Database.GetSeasonById(season.Id));
+		}
 
 
 
@@ -220,6 +224,44 @@ namespace Server
 		public void DeleteBet(WcfBet bet)
 		{
 			Database.DeleteBet(Database.GetBetById(bet.Id));
+		}
+
+
+
+
+		public List<WcfRelation> GetAllRelations()
+		{
+			List<WcfRelation> relations = new List<WcfRelation>();
+			foreach(SeasonsToTeamsRelation relation in Database.GetSeasonsToTeamsRelations())
+			{
+				relations.Add(new WcfRelation(relation));
+			}
+			return relations;
+		}
+
+		public List<WcfRelation> GetRelationsByTeam(WcfTeam team)
+		{
+			List<WcfRelation> relations = new List<WcfRelation>();
+			foreach (SeasonsToTeamsRelation relation in Database.GetSeasonsToTeamsRelationsByTeamId(team.Id))
+			{
+				relations.Add(new WcfRelation(relation));
+			}
+			return relations;
+		}
+
+		public List<WcfRelation> GetRelationsBySeason(WcfSeason season)
+		{
+			List<WcfRelation> relations = new List<WcfRelation>();
+			foreach (SeasonsToTeamsRelation relation in Database.GetSeasonsToTeamsRelationsBySeasonId(season.Id))
+			{
+				relations.Add(new WcfRelation(relation));
+			}
+			return relations;
+		}
+
+		public void DeleteRelation(WcfRelation relation)
+		{
+			Database.DeleteSeasonsToTeamsRelation(Database.GetSeasonsToTeamsRelationById(relation.Id));
 		}
 	}
 }

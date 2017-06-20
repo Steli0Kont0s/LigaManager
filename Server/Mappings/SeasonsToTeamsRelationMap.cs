@@ -11,8 +11,10 @@ namespace Server.Mappings
 
 			Id(x => x.Id).GeneratedBy.Native();
 
-			References(x => x.Season).Column("SeasonId").Not.Nullable();
-			References(x => x.Team).Column("TeamId").Not.Nullable();
+			Map(x => x.TeamId).Not.Nullable().Unique();
+			Map(x => x.SeasonId).Not.Nullable().Unique();
+
+
 		}
 	}
 }

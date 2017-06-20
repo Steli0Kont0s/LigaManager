@@ -217,17 +217,44 @@ namespace Server
 			return mSeasonsToTeamsRelationRepository.GetById(id);
 		}
 
+		public static List<SeasonsToTeamsRelation> GetSeasonsToTeamsRelationsBySeasonId(int id)
+		{
+			return mSeasonsToTeamsRelationRepository.GetByProperty("SeasonId",id).ToList<SeasonsToTeamsRelation>();
+		}
+
+		public static List<SeasonsToTeamsRelation> GetSeasonsToTeamsRelationsByTeamId(int id)
+		{
+			return mSeasonsToTeamsRelationRepository.GetByProperty("TeamId", id).ToList<SeasonsToTeamsRelation>();
+		}
+
 		public static void DeleteSeasonsToTeamsRelation(SeasonsToTeamsRelation relation)
 		{
-			mSeasonsToTeamsRelationRepository.Delete(relation);
+			try
+			{
+				mSeasonsToTeamsRelationRepository.Delete(relation);
+
+			}
+			catch
+			{
+
+			}
 		}
 
 		public static void AddSeasonsToTeamsRelation(Team team, Season season)
 		{
-			SeasonsToTeamsRelation relation = new SeasonsToTeamsRelation();
-			relation.Team = team;
-			relation.Season = season;
-			mSeasonsToTeamsRelationRepository.Save(relation);
+			SeasonsToTeamsRelation relation = new SeasonsToTeamsRelation()
+			{
+				TeamId = team.Id,
+				SeasonId = season.Id
+			};
+			try
+			{
+				mSeasonsToTeamsRelationRepository.Save(relation);
+			}
+			catch
+			{
+				
+			}
 		}
 
 		// Database Interactions with Bets

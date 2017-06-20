@@ -142,6 +142,19 @@ namespace Client.Controller
 			}
 		}
 
+		private void EditSeason()
+		{
+			if (mViewModel.SelectedSeason != null)
+			{
+				WcfSeason editedSeason = new WindowEditSeasonController().EditSeason(mViewModel.SelectedSeason);
+				if (editedSeason != null)
+				{
+					WcfHelper.client.EditSeason(editedSeason);
+					ReloadSeasons();
+				}
+			}
+		}
+
 		// Button Add
 		private void AddCommandExecute(object obj)
 		{
@@ -175,7 +188,7 @@ namespace Client.Controller
 					break;
 
 				case 2:     // Seasons
-
+					EditSeason();
 					break;
 			}
 		}
