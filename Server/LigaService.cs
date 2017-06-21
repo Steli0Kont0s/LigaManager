@@ -132,17 +132,18 @@ namespace Server
 
 		public void AddMatch(WcfMatch match)
 		{
-			Database.AddMatch(Database.GetSeasonById(match.SeasonId), 
+			Database.AddMatch(match.SeasonId, 
 				Database.GetTeamById(match.HomeTeamId), 
 				Database.GetTeamById(match.AwayTeamId), 
 				match.HomeTeamScore, 
 				match.AwayTeamScore, 
-				match.Date);
+				match.Date,
+				match.MatchDay);
 		}
 
 		public void EditMatch(WcfMatch match)
 		{
-			Database.EditMatch(Database.GetMatchById(match.Id), match.HomeTeamScore, match.AwayTeamScore, match.Date);
+			Database.EditMatch(Database.GetMatchById(match.Id), match.HomeTeamScore, match.AwayTeamScore, match.Date, match.MatchDay);
 		}
 
 		public void DeleteMatch(WcfMatch match)

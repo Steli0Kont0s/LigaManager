@@ -48,12 +48,15 @@
 									<StackPanel Orientation="Vertical">
 										<TextBlock Text="{Binding HomeTeamName}"/>
 										<TextBlock Text="{Binding AwayTeamName}"/>
+										<TextBlock Text="{Binding HomeTeamId}"/>
+										<TextBlock Text="{Binding AwayTeamId}"/>
 									</StackPanel>
 								</DataTemplate>
 							</ListBox.ItemTemplate>
 						</ListBox>
 						<DockPanel>
 							<Button x:Name="AddMatch" Content="Add" Command="{Binding AddMatchCommand}" Margin="5" Width="100" Height="30" DockPanel.Dock="Top"/>
+							<Button x:Name="EditMatch" Content="Edit" Command="{Binding EditMatchCommand}" Margin="5" Width="100" Height="30" DockPanel.Dock="Top"/>
 							<Button x:Name="DeleteMatch" Content="Delete" Command="{Binding DeleteMatchCommand}" Margin="5" Width="100" Height="30" DockPanel.Dock="Top"/>
 							<Button x:Name="AutoGen" Content="Auto Generate" Command="{Binding AutoGenCommand}" Margin="5" Width="100" Height="30" DockPanel.Dock="Bottom" VerticalAlignment="Bottom"/>
 						</DockPanel>

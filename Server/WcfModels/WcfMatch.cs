@@ -33,7 +33,7 @@ namespace Server.WcfModels
 			this.AwayTeamName = match.AwayTeam.Name;
 			this.HomeTeamScore = match.HomeTeamScore;
 			this.AwayTeamScore = match.AwayTeamScore;
-			this.SeasonId = match.Season.Id;
+			this.SeasonId = match.SeasonId;
 		}
 	}
 }

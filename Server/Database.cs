@@ -144,23 +144,33 @@ namespace Server
 			return mMatchRepository.GetById(id);
 		}
 
-		public static void AddMatch(Season season, Team home, Team away, int homeTeamScore, int awayTeamScore, DateTime dateTime)
+		public static void AddMatch(int seasonId, Team home, Team away, int homeTeamScore, int awayTeamScore, DateTime dateTime, int matchDay)
 		{
 			Match newMatch = new Match();
 			newMatch.AwayTeam = away;
 			newMatch.HomeTeam = home;
+			newMatch.MatchDay = matchDay;
 			newMatch.AwayTeamScore = awayTeamScore;
 			newMatch.HomeTeamScore = homeTeamScore;
-			//newMatch.Season = season;
+			newMatch.SeasonId = seasonId;
 			newMatch.Date = dateTime;
-			mMatchRepository.Save(newMatch);
+			
+			try
+			{
+				mMatchRepository.Save(newMatch);
+			}
+			catch
+			{
+
+			}
 		}
 
-		public static void EditMatch(Match match, int homeTeamScore, int awayTeamScore, DateTime dateTime)
+		public static void EditMatch(Match match, int homeTeamScore, int awayTeamScore, DateTime dateTime, int matchDay)
 		{
 			match.AwayTeamScore = awayTeamScore;
 			match.HomeTeamScore = homeTeamScore;
 			match.Date = dateTime;
+			match.MatchDay = matchDay;
 			mMatchRepository.Update(match);
 		}
 

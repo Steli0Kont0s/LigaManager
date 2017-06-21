@@ -26,6 +26,9 @@ namespace Client.ViewModels
 		public ICommand CancelCommand { get; set; }
 		public ICommand DeleteTeamCommand { get; set; }
 		public ICommand AddTeamCommand { get; set; }
+		public ICommand AddMatchCommand { get; set; }
+		public ICommand EditMatchCommand { get; set; }
+		public ICommand DeleteMatchCommand { get; set; }
 
 		public string Name
 		{

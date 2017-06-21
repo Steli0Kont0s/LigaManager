@@ -12,15 +12,27 @@ namespace Client.ViewModels
 {
 	class WindowMatchViewModel : ViewModelBase
 	{
-		private TeamHelper mSelectedTeam;
-		private ObservableCollection<TeamHelper> mTeams;
+		private ObservableCollection<WcfTeam> mTeams;
 
 		public WcfMatch Match { get; set; }
-
+		
 		public ICommand OkCommand { get; set; }
 		public ICommand CancelCommand { get; set; }
 
-		public ObservableCollection<TeamHelper> Teams
+		public DateTime DateTime
+		{
+			get
+			{
+				return Match.Date;
+			}
+
+			set
+			{
+				Match.Date = value;
+			}
+		}
+
+		public ObservableCollection<WcfTeam> Teams
 		{
 			get { return mTeams; }
 
@@ -33,16 +45,37 @@ namespace Client.ViewModels
 			}
 		}
 
-		public TeamHelper SelectedTeam
+		public WcfTeam SelectedHomeTeam
 		{
-			get { return mSelectedTeam; }
+			get
+			{
+				return mTeams.ToList().Find(team => team.Id == Match.HomeTeamId);
+			}
 
 			set
 			{
-				if (mSelectedTeam == value)
+				if (Match.HomeTeamId == value.Id)
 					return;
-				mSelectedTeam = value;
-				OnPropertyChanged("SelectedTeam");
+				Match.HomeTeamId = value.Id;
+				Match.HomeTeamName = value.Name;
+				//OnPropertyChanged("SelectedHomeTeam");
+			}
+		}
+
+		public WcfTeam SelectedAwayTeam
+		{
+			get
+			{
+				return mTeams.ToList().Find(team => team.Id == Match.AwayTeamId);
+			}
+
+			set
+			{
+				if (Match.AwayTeamId == value.Id)
+					return;
+				Match.AwayTeamId = value.Id;
+				Match.AwayTeamName = value.Name;
+				//OnPropertyChanged("SelectedAwayTeam");
 			}
 		}
 	}

@@ -31,7 +31,10 @@ namespace Client.Controller
 				OkCommand = new RelayCommand(ExecuteOkCommand),
 				CancelCommand = new RelayCommand(ExecuteCancelCommand),
 				DeleteTeamCommand = new RelayCommand(ExecuteDeleteTeamCommand),
-				AddTeamCommand = new RelayCommand(ExecuteAddTeamCommand)
+				AddTeamCommand = new RelayCommand(ExecuteAddTeamCommand),
+				AddMatchCommand = new RelayCommand(ExecuteAddMatchCommand),
+				EditMatchCommand = new RelayCommand(ExecuteEditMatchCommand),
+				DeleteMatchCommand = new RelayCommand(ExecuteDeleteMatchCommand)
 			};
 			ReloadMatches();
 			ReloadTeams();
@@ -68,6 +71,30 @@ namespace Client.Controller
 			}
 		}
 
+		private void ExecuteEditMatchCommand(object obj)
+		{
+			if(mViewModel.SelectedMatch != null)
+			{
+				EditMatch();
+				ReloadMatches();
+			}
+		}
+
+		private void ExecuteAddMatchCommand(object obj)
+		{
+			if (mViewModel.SelectedMatch != null)
+			{
+				AddMatch();
+				ReloadMatches();
+			}
+		}
+
+		private void ExecuteDeleteMatchCommand(object obj)
+		{
+			WcfHelper.client.DeleteMatch(mViewModel.SelectedMatch);
+			ReloadMatches();
+		}
+
 		private void ReloadTeams()
 		{
 			mViewModel.Teams.Clear();
@@ -92,6 +119,24 @@ namespace Client.Controller
 			foreach (WcfMatch match in WcfHelper.client.GetMatches(Season))
 			{
 				mViewModel.Matches.Add(match);
+			}
+		}
+
+		private void EditMatch()
+		{
+			
+		}
+
+		private void AddMatch()
+		{
+			if (mViewModel.SelectedMatch != null)
+			{
+				WcfMatch editedMatch = new WindowAddMatchController().EditMatch(Season);
+				if (editedMatch != null)
+				{
+					WcfHelper.client.AddMatch(editedMatch);
+					ReloadMatches();
+				}
 			}
 		}
 	}

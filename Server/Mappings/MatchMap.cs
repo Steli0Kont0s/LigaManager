@@ -15,10 +15,10 @@ namespace Server.Mappings
 			Map(x => x.HomeTeamScore).Not.Nullable();
 			Map(x => x.AwayTeamScore).Not.Nullable();
 			Map(x => x.MatchDay).Not.Nullable();
+			Map(x => x.SeasonId).Not.Nullable();
+
 			References(x => x.HomeTeam).Column("HomeTeamId").Not.Nullable();
 			References(x => x.AwayTeam).Column("AwayTeamId").Not.Nullable();
-			References(x => x.Season).Column("SeasonId").Not.Nullable();
-
 		}
 	}
 }

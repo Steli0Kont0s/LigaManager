@@ -2,7 +2,6 @@ C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\bin\Debug\Ser
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\bin\Debug\Server.pdb
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\obj\Debug\Server.exe
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\obj\Debug\Server.pdb
-C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\bin\Debug\FluentNHibernate.dll
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\bin\Debug\Iesi.Collections.dll
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\bin\Debug\NHibernate.dll
@@ -15,3 +14,4 @@ C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\bin\Debug\NHi
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\bin\Debug\NHibernate.xml
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\bin\Debug\Database\LigaManager.db3
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\bin\Debug\Server.exe.config
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache

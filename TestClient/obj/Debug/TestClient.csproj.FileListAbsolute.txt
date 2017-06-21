@@ -1,6 +1,5 @@
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\TestClient\bin\Debug\TestClient.exe.config
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\TestClient\bin\Debug\TestClient.exe
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\TestClient\bin\Debug\TestClient.pdb
-C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\TestClient\obj\Debug\TestClient.csprojResolveAssemblyReference.cache
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\TestClient\obj\Debug\TestClient.exe
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\TestClient\obj\Debug\TestClient.pdb

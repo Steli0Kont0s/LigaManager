@@ -62,6 +62,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controller\MainWindowController.cs" />
+    <Compile Include="Controller\WindowAddMatchController.cs" />
     <Compile Include="Controller\WindowEditSeasonController.cs" />
     <Compile Include="Controller\WindowEditTeamController.cs" />
     <Compile Include="Controller\WindowAddTeamController.cs" />
@@ -82,8 +83,8 @@
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WindowMatch.xaml.cs">
-      <DependentUpon>WindowMatch.xaml</DependentUpon>
+    <Compile Include="Views\WindowAddMatch.xaml.cs">
+      <DependentUpon>WindowAddMatch.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowBettor.xaml.cs">
       <DependentUpon>WindowBettor.xaml</DependentUpon>
@@ -157,7 +158,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WindowMatch.xaml">
+    <Page Include="Views\WindowAddMatch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

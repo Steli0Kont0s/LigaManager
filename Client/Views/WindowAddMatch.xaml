@@ -5,17 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client.Views"
         mc:Ignorable="d"
-        Title="WindowAddMatch" Height="211.652" Width="231.992">
+        Title="WindowAddMatch" Height="214.195" Width="300">
     <Grid>
 		<StackPanel Orientation="Vertical" DockPanel.Dock="Right" Margin="5">
 			<Label Content="Home Team:" />
-			<ComboBox Margin="0,0,0,5"/>
+			<ComboBox Margin="0,0,0,5" ItemsSource="{Binding Teams}" SelectedItem="{Binding SelectedHomeTeam}">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding Name}"/>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
 			<Label Content="Away Team:"/>
-			<ComboBox Margin="0,0,0,5"/>
-			<DatePicker Margin="0,5,0,5"/>
+			<ComboBox Margin="0,0,0,5" ItemsSource="{Binding Teams}" SelectedItem="{Binding SelectedAwayTeam}">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding Name}"/>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+			<DatePicker Margin="0,5,0,5" SelectedDate="{Binding DateTime}"/>
 			<StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
 				<Button Content="OK" Width="100" Margin="5" Command="{Binding OkCommand}" />
-				<Button Content="Abbrechen" Width="100" Margin="5" Command="{Binding CancelCommand}" />
+				<Button Content="Cancel" Width="100" Margin="5" Command="{Binding CancelCommand}" />
 			</StackPanel>
 		</StackPanel>
 	</Grid>
