@@ -27,6 +27,9 @@ namespace Server
 		WcfBettor GetBettorById(int id);
 
 		[OperationContract]
+		WcfBettor GetBettorByName(String name);
+
+		[OperationContract]
 		void AddBettor(WcfBettor bettor);
 
 		[OperationContract]
@@ -34,6 +37,9 @@ namespace Server
 
 		[OperationContract]
 		void DeleteBettor(WcfBettor bettor);
+
+		[OperationContract]
+		bool CheckBettor(String name);
 
 
 

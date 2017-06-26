@@ -76,7 +76,7 @@ namespace Server
 			}
 		}
 
-		public static Boolean DeleteBettor(Bettor bettor)
+		public static bool DeleteBettor(Bettor bettor)
 		{
 			if(bettor.Bets == null || bettor.Bets.Count() == 0)
 			{
@@ -87,7 +87,16 @@ namespace Server
 			{
 				return false;
 			}
-			
+		}
+
+		public static bool CheckBettor(String name)
+		{
+			return mBettorRepository.GetByPropertyIgnoreCase("Nickname", name).Count > 0;
+		}
+
+		public static Bettor GetBettorByName(String name)
+		{
+			return mBettorRepository.GetByPropertyIgnoreCase("Nickname", name).ElementAt(0);
 		}
 
 		// Database Interactions with Teams

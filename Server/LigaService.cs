@@ -35,6 +35,11 @@ namespace Server
 			return new WcfBettor(Database.GetBettorById(id));
 		}
 
+		public WcfBettor GetBettorByName(string name)
+		{
+			return new WcfBettor(Database.GetBettorByName(name));
+		}
+
 		public void AddBettor(WcfBettor bettor)
 		{
 			Database.AddBettor(bettor.Firstname, bettor.Lastname, bettor.Nickname);
@@ -48,6 +53,11 @@ namespace Server
 		public void DeleteBettor(WcfBettor bettor)
 		{
 			Database.DeleteBettor(Database.GetBettorById(bettor.Id));
+		}
+
+		public bool CheckBettor(String name)
+		{
+			return Database.CheckBettor(name);
 		}
 
 
