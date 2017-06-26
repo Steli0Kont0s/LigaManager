@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Client.ViewModels
@@ -26,9 +27,25 @@ namespace Client.ViewModels
 		public ICommand CancelCommand { get; set; }
 		public ICommand DeleteTeamCommand { get; set; }
 		public ICommand AddTeamCommand { get; set; }
+		public ICommand AddAllTeamsCommand { get; set; }
+		public ICommand DeleteAllTeamsCommand { get; set; }
 		public ICommand AddMatchCommand { get; set; }
 		public ICommand EditMatchCommand { get; set; }
 		public ICommand DeleteMatchCommand { get; set; }
+		public ICommand GenerateMatchesCommand { get; set; }
+
+		public DateTime StartDate
+		{
+			get
+			{
+				return Season.StartDate;
+			}
+
+			set
+			{
+				Season.StartDate = value;
+			}
+		}
 
 		public string Name
 		{
@@ -84,7 +101,10 @@ namespace Client.ViewModels
 
 		public ObservableCollection<WcfTeam> AllTeams
 		{
-			get { return mAllTeams; }
+			get
+			{
+				return mAllTeams;
+			}
 
 			set
 			{

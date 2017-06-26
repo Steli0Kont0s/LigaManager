@@ -139,6 +139,25 @@ namespace Server
 			return mMatchRepository.GetAll();
 		}
 
+		public static void DeleteMatches(int SeasonId, Team Team)
+		{
+			List<Match> matches = new List<Match>();
+			matches = mMatchRepository.GetByProperty("SeasonId", SeasonId, "HomeTeam", Team).ToList<Match>();
+			Console.WriteLine("-----------------------------{0}--------------------------------------", matches.Count());
+			foreach (Match match in matches)
+			{
+				Console.WriteLine("Deleted {0}", match.Id);
+				mMatchRepository.Delete(match);
+				Console.WriteLine("Deleted {0}", match.Id);
+			}
+			foreach (Match match in mMatchRepository.GetByProperty("SeasonId", SeasonId, "AwayTeam", Team).ToList<Match>())
+			{
+				Console.WriteLine("Deleted {0}", match.Id);
+				mMatchRepository.Delete(match);
+				Console.WriteLine("Deleted {0}", match.Id);
+			}
+		}
+
 		public static Match GetMatchById(int id)
 		{
 			return mMatchRepository.GetById(id);
@@ -242,7 +261,6 @@ namespace Server
 			try
 			{
 				mSeasonsToTeamsRelationRepository.Delete(relation);
-
 			}
 			catch
 			{

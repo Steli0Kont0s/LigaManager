@@ -62,6 +62,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controller\MainWindowController.cs" />
+    <Compile Include="Controller\WindowEditMatchController.cs" />
     <Compile Include="Controller\WindowAddMatchController.cs" />
     <Compile Include="Controller\WindowEditSeasonController.cs" />
     <Compile Include="Controller\WindowEditTeamController.cs" />
@@ -70,7 +71,8 @@
     <Compile Include="Controller\WindowAddBettorController.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\TeamHelper.cs" />
-    <Compile Include="ViewModels\WindowMatchViewModel.cs" />
+    <Compile Include="ViewModels\WindowEditMatchViewModel.cs" />
+    <Compile Include="ViewModels\WindowAddMatchViewModel.cs" />
     <Compile Include="ViewModels\WindowSeasonViewModel.cs" />
     <Compile Include="ViewModels\WindowTeamViewModel.cs" />
     <Compile Include="ViewModels\WindowBettorViewModel.cs" />
@@ -88,6 +90,9 @@
     </Compile>
     <Compile Include="Views\WindowBettor.xaml.cs">
       <DependentUpon>WindowBettor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowEditMatch.xaml.cs">
+      <DependentUpon>WindowEditMatch.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowSeason.xaml.cs">
       <DependentUpon>WindowSeason.xaml</DependentUpon>
@@ -163,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WindowBettor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowEditMatch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

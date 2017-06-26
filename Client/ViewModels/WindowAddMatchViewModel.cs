@@ -10,14 +10,59 @@ using System.Windows.Input;
 
 namespace Client.ViewModels
 {
-	class WindowMatchViewModel : ViewModelBase
+	class WindowAddMatchViewModel : ViewModelBase
 	{
-		private ObservableCollection<WcfTeam> mTeams;
+		private ObservableCollection<TeamHelper> mTeams;
 
 		public WcfMatch Match { get; set; }
 		
 		public ICommand OkCommand { get; set; }
 		public ICommand CancelCommand { get; set; }
+
+		public int MatchDay
+		{
+			get
+			{
+				return Match.MatchDay;
+			}
+
+			set
+			{
+				Match.MatchDay = value;
+			}
+		}
+
+		public int Hour
+		{
+			get
+			{
+				return Match.Date.Hour;
+			}
+
+			set
+			{
+				if (value < 24)
+					Match.Date = Match.Date.Date.Add(new TimeSpan(value, Minute, 0));
+				else
+					return;
+			}
+		}
+
+		public int Minute
+		{
+			get
+			{
+				return Match.Date.Minute;
+			}
+
+			set
+			{
+				if (value < 60)
+					Match.Date = Match.Date.Date.Add(new TimeSpan(Hour, value, 0));
+				else
+					return;
+			}
+		}
 
 		public DateTime DateTime
 		{
@@ -32,7 +77,7 @@ namespace Client.ViewModels
 			}
 		}
 
-		public ObservableCollection<WcfTeam> Teams
+		public ObservableCollection<TeamHelper> Teams
 		{
 			get { return mTeams; }
 
@@ -45,7 +90,7 @@ namespace Client.ViewModels
 			}
 		}
 
-		public WcfTeam SelectedHomeTeam
+		public TeamHelper SelectedHomeTeam
 		{
 			get
 			{
@@ -62,7 +107,7 @@ namespace Client.ViewModels
 			}
 		}
 
-		public WcfTeam SelectedAwayTeam
+		public TeamHelper SelectedAwayTeam
 		{
 			get
 			{

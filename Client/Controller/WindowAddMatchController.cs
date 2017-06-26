@@ -14,16 +14,16 @@ namespace Client.Controller
 	class WindowAddMatchController
 	{
 		private WindowAddMatch mView;
-		private WindowMatchViewModel mViewModel;
+		private WindowAddMatchViewModel mViewModel;
 		private WcfSeason mSeason;
-		public WcfMatch EditMatch(WcfSeason season)
+		public WcfMatch AddMatch(WcfSeason season)
 		{
 			mSeason = season;
 			mView = new WindowAddMatch();
-			mViewModel = new WindowMatchViewModel
+			mViewModel = new WindowAddMatchViewModel
 			{
 				Match = new WcfMatch(),
-				Teams = new ObservableCollection<WcfTeam>(),
+				Teams = new ObservableCollection<TeamHelper>(),
 				OkCommand = new RelayCommand(ExecuteOkCommand),
 				CancelCommand = new RelayCommand(ExecuteCancelCommand)
 			};
@@ -33,7 +33,6 @@ namespace Client.Controller
 			mViewModel.Match.AwayTeamScore = 0;
 			mViewModel.Match.HomeTeamScore = 0;
 			mViewModel.Match.SeasonId = season.Id;
-			mViewModel.Match.MatchDay = 0;
 
 			return mView.ShowDialog() == true ? mViewModel.Match : null;
 		}
@@ -53,9 +52,9 @@ namespace Client.Controller
 		private void ReloadTeams()
 		{
 			mViewModel.Teams.Clear();
-			foreach (WcfTeam team in WcfHelper.client.GetAllTeams())
+			foreach (WcfRelation relation in WcfHelper.client.GetRelationsBySeason(mSeason))
 			{
-				mViewModel.Teams.Add(team);
+				mViewModel.Teams.Add(new TeamHelper(relation));
 			}
 		}
 	}

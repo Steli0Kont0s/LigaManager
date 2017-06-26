@@ -100,6 +100,7 @@ namespace Server
 
 		public void DeleteTeamFromSeason(WcfTeam team, WcfSeason season)
 		{
+			Database.DeleteMatches(season.Id, Database.GetTeamById(team.Id));
 			Database.AddSeasonsToTeamsRelation(Database.GetTeamById(team.Id), Database.GetSeasonById(season.Id));
 		}
 
@@ -151,7 +152,10 @@ namespace Server
 			Database.DeleteMatch(Database.GetMatchById(match.Id));
 		}
 
-
+		public void GenerateMatches(WcfSeason season)
+		{
+			SeasonGenerator.GenerateMatches(Database.GetSeasonById(season.Id), season.StartDate);
+		}
 
 
 		public List<WcfSeason> GetAllSeasons()

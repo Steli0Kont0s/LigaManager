@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client.Views"
         mc:Ignorable="d"
-        Title="Season" Height="500" Width="500">
+        Title="Season" Height="500" Width="500" WindowStartupLocation="CenterOwner" ResizeMode="CanMinimize">
 	<Grid>
 		<DockPanel>
 			<TabControl x:Name="TabControlMain" DockPanel.Dock="Top">
@@ -15,50 +15,64 @@
 						<TextBox Text="{Binding Name}" Margin="0,5,5,5"/>
 						<Label Content="Description:"/>
 						<TextBox Text="{Binding Description}" Margin="0,5,5,5"/>
+						<Label Content="Start Date:"/>
+						<DatePicker Margin="0,5,0,5" SelectedDate="{Binding StartDate}"/>
 					</StackPanel>
 				</TabItem>
 				<TabItem Header="Teams">
-					<DockPanel Height="390" >
-						<ListBox ItemsSource="{Binding Teams}" SelectedItem="{Binding SelectedTeam}" x:Name="Teams" DockPanel.Dock="Left" Width="240">
-							<ListBox.ItemTemplate>
-								<DataTemplate>
-									<TextBlock Text="{Binding Name}"/>
-								</DataTemplate>
-							</ListBox.ItemTemplate>
-						</ListBox>
-						<StackPanel Orientation="Vertical" DockPanel.Dock="Right" Margin="5,0">
-							<Label Content="New Team:" />
-							<ComboBox Margin="0,0,0,5" ItemsSource="{Binding AllTeams}" SelectedItem="{Binding SelectedAllTeam}">
-								<ComboBox.ItemTemplate>
-									<DataTemplate>
-										<TextBlock Text="{Binding Name}"/>
-									</DataTemplate>
-								</ComboBox.ItemTemplate>
-							</ComboBox>
-							<Button x:Name="AddTeam" Content="Add" Command="{Binding AddTeamCommand}" Margin="5" Width="100" Height="30"/>
-							<Button x:Name="DeleteTeam" Content="Delete" Command="{Binding DeleteTeamCommand}" Margin="5" Width="100" Height="30"/>
-						</StackPanel>
-					</DockPanel>
-				</TabItem>
-				<TabItem Header="Matches" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
-					<DockPanel Height="390" >
-						<ListBox ItemsSource="{Binding Matches}" SelectedItem="{Binding SelectedMatch}" x:Name="Matches" DockPanel.Dock="Left" Width="353">
+					<Grid Height="390">
+						<ListBox ItemsSource="{Binding Teams}" SelectedItem="{Binding SelectedTeam}" Width="210" HorizontalAlignment="Left">
 							<ListBox.ItemTemplate>
 								<DataTemplate>
 									<StackPanel Orientation="Vertical">
-										<TextBlock Text="{Binding HomeTeamName}"/>
-										<TextBlock Text="{Binding AwayTeamName}"/>
-										<TextBlock Text="{Binding HomeTeamId}"/>
-										<TextBlock Text="{Binding AwayTeamId}"/>
+										<TextBlock Text="{Binding Name}"/>
 									</StackPanel>
 								</DataTemplate>
 							</ListBox.ItemTemplate>
 						</ListBox>
+						<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+							<Button Content="&lt;" Width="30" Height="30" Margin="5" Command="{Binding AddTeamCommand}" />
+							<Button Content=">" Width="30" Height="30" Margin="5" Command="{Binding DeleteTeamCommand}" />
+						</StackPanel>
+						<ListBox ItemsSource="{Binding AllTeams}" SelectedItem="{Binding SelectedAllTeam}" Width="210" HorizontalAlignment="Right">
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<StackPanel Orientation="Vertical">
+										<TextBlock Text="{Binding Name}"/>
+									</StackPanel>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
+					</Grid>
+				</TabItem>
+				<TabItem Header="Matches" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+					<DockPanel Height="390" >
+						<ListView ItemsSource="{Binding Matches}" SelectedItem="{Binding SelectedMatch}" x:Name="Matches" DockPanel.Dock="Left" Width="353">
+							<ListView.View>
+								<GridView>
+									<GridViewColumn Width="100"  Header="Home Team" DisplayMemberBinding="{Binding HomeTeamName}"/>
+									<GridViewColumn Width="100" Header="Away Team" DisplayMemberBinding="{Binding AwayTeamName}"/>
+									<GridViewColumn Width="50" Header="Score">
+										<GridViewColumn.CellTemplate>
+											<DataTemplate>
+												<TextBlock>
+													<Run Text="{Binding HomeTeamScore}"/>
+													<Run Text=":"/>
+													<Run Text="{Binding AwayTeamScore}"/>
+												</TextBlock>
+											</DataTemplate>
+										</GridViewColumn.CellTemplate>
+									</GridViewColumn>
+									<GridViewColumn Width="70" Header="Date" DisplayMemberBinding="{Binding Date}"/>
+									<GridViewColumn Width="30" Header="Day" DisplayMemberBinding="{Binding MatchDay}"/>
+								</GridView>
+							</ListView.View>
+						</ListView>
 						<DockPanel>
 							<Button x:Name="AddMatch" Content="Add" Command="{Binding AddMatchCommand}" Margin="5" Width="100" Height="30" DockPanel.Dock="Top"/>
 							<Button x:Name="EditMatch" Content="Edit" Command="{Binding EditMatchCommand}" Margin="5" Width="100" Height="30" DockPanel.Dock="Top"/>
 							<Button x:Name="DeleteMatch" Content="Delete" Command="{Binding DeleteMatchCommand}" Margin="5" Width="100" Height="30" DockPanel.Dock="Top"/>
-							<Button x:Name="AutoGen" Content="Auto Generate" Command="{Binding AutoGenCommand}" Margin="5" Width="100" Height="30" DockPanel.Dock="Bottom" VerticalAlignment="Bottom"/>
+							<Button x:Name="AutoGen" Content="Auto Generate" Command="{Binding GenerateMatchesCommand}" Margin="5" Width="100" Height="30" DockPanel.Dock="Bottom" VerticalAlignment="Bottom"/>
 						</DockPanel>
 					</DockPanel>
 				</TabItem>

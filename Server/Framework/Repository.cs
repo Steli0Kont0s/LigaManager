@@ -73,6 +73,15 @@ namespace Server.Framework
 			}
 		}
 
+		public List<T> GetByProperty(string property1, object value1, string property2, object value2)
+		{
+			using (var session = NHibernateHelper.OpenSession())
+			{
+				var returnList = session.CreateCriteria<T>().Add(Restrictions.Eq(property1, value1)).Add(Restrictions.Eq(property2, value2)).List<T>();
+				return returnList as List<T>;
+			}
+		}
+
 		public List<T> GetByPropertyIgnoreCase(string property, object value)
 		{
 			using (var session = NHibernateHelper.OpenSession())

@@ -39,10 +39,7 @@ namespace Server.Commands
 
 		public static void Matches()
 		{
-			foreach (Match match in Database.GetMatches())
-			{
-				Console.WriteLine("{0} {1} {2} {3}", match.Id, match.GetDate, match.AwayTeam.Name, match.HomeTeam.Name);
-			}
+			SeasonGenerator.GenerateMatches(Database.GetSeasonById(1), DateTime.Today);
 		}
 
 		public static void Seasons()

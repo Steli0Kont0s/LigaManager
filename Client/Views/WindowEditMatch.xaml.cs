@@ -16,16 +16,16 @@ using System.Windows.Shapes;
 namespace Client.Views
 {
 	/// <summary>
-	/// Interaction logic for WindowAddMatch.xaml
+	/// Interaction logic for WindowEditMatch.xaml
 	/// </summary>
-	public partial class WindowAddMatch : Window
+	public partial class WindowEditMatch : Window
 	{
 		private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
 		{
 			Regex regex = new Regex("[^0-9]+");
 			e.Handled = regex.IsMatch(e.Text);
 		}
-		public WindowAddMatch()
+		public WindowEditMatch()
 		{
 			InitializeComponent();
 		}

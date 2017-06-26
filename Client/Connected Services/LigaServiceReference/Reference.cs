@@ -135,6 +135,12 @@ namespace Client.LigaServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/DeleteMatch", ReplyAction="http://tempuri.org/ILigaService/DeleteMatchResponse")]
         System.Threading.Tasks.Task DeleteMatchAsync(Server.WcfModels.WcfMatch match);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GenerateMatches", ReplyAction="http://tempuri.org/ILigaService/GenerateMatchesResponse")]
+        void GenerateMatches(Server.WcfModels.WcfSeason season);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GenerateMatches", ReplyAction="http://tempuri.org/ILigaService/GenerateMatchesResponse")]
+        System.Threading.Tasks.Task GenerateMatchesAsync(Server.WcfModels.WcfSeason season);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILigaService/GetAllSeasons", ReplyAction="http://tempuri.org/ILigaService/GetAllSeasonsResponse")]
         System.Collections.ObjectModel.Collection<Server.WcfModels.WcfSeason> GetAllSeasons();
         
@@ -411,6 +417,14 @@ namespace Client.LigaServiceReference {
         
         public System.Threading.Tasks.Task DeleteMatchAsync(Server.WcfModels.WcfMatch match) {
             return base.Channel.DeleteMatchAsync(match);
+        }
+        
+        public void GenerateMatches(Server.WcfModels.WcfSeason season) {
+            base.Channel.GenerateMatches(season);
+        }
+        
+        public System.Threading.Tasks.Task GenerateMatchesAsync(Server.WcfModels.WcfSeason season) {
+            return base.Channel.GenerateMatchesAsync(season);
         }
         
         public System.Collections.ObjectModel.Collection<Server.WcfModels.WcfSeason> GetAllSeasons() {

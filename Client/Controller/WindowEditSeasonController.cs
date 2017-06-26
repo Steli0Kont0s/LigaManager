@@ -34,14 +34,21 @@ namespace Client.Controller
 				AddTeamCommand = new RelayCommand(ExecuteAddTeamCommand),
 				AddMatchCommand = new RelayCommand(ExecuteAddMatchCommand),
 				EditMatchCommand = new RelayCommand(ExecuteEditMatchCommand),
-				DeleteMatchCommand = new RelayCommand(ExecuteDeleteMatchCommand)
+				DeleteMatchCommand = new RelayCommand(ExecuteDeleteMatchCommand),
+				GenerateMatchesCommand = new RelayCommand(ExecuteGenerateMatchesCommand)
 			};
 			ReloadMatches();
-			ReloadTeams();
 			ReloadAllTeams();
+			ReloadTeams();
 			mView.Title = season.Name;
 			mView.DataContext = mViewModel;
 			return mView.ShowDialog() == true ? mViewModel.Season : null;
+		}
+
+		private void ExecuteGenerateMatchesCommand(object obj)
+		{
+			WcfHelper.client.GenerateMatches(Season);
+			ReloadMatches();
 		}
 
 		private void ExecuteOkCommand(object obj)
@@ -66,8 +73,10 @@ namespace Client.Controller
 		{
 			if(mViewModel.SelectedTeam != null)
 			{
+				WcfHelper.client.DeleteTeamFromSeason(mViewModel.SelectedTeam.GetTeam(), Season);
 				mViewModel.SelectedTeam.Delete();
 				ReloadTeams();
+				ReloadMatches();
 			}
 		}
 
@@ -82,11 +91,8 @@ namespace Client.Controller
 
 		private void ExecuteAddMatchCommand(object obj)
 		{
-			if (mViewModel.SelectedMatch != null)
-			{
-				AddMatch();
-				ReloadMatches();
-			}
+			AddMatch();
+			ReloadMatches();
 		}
 
 		private void ExecuteDeleteMatchCommand(object obj)
@@ -124,19 +130,21 @@ namespace Client.Controller
 
 		private void EditMatch()
 		{
-			
+			WcfMatch EditedMatch = new WindowEditMatchController().EditMatch(mViewModel.SelectedMatch);
+			if (EditedMatch != null)
+			{
+				WcfHelper.client.EditMatch(EditedMatch);
+				ReloadMatches();
+			}
 		}
 
 		private void AddMatch()
 		{
-			if (mViewModel.SelectedMatch != null)
+			WcfMatch AddMatch = new WindowAddMatchController().AddMatch(Season);
+			if (AddMatch != null && (AddMatch.AwayTeamId != AddMatch.HomeTeamId))
 			{
-				WcfMatch editedMatch = new WindowAddMatchController().EditMatch(Season);
-				if (editedMatch != null)
-				{
-					WcfHelper.client.AddMatch(editedMatch);
-					ReloadMatches();
-				}
+				WcfHelper.client.AddMatch(AddMatch);
+				ReloadMatches();
 			}
 		}
 	}

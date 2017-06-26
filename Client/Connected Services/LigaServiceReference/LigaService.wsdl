@@ -127,6 +127,12 @@
   <wsdl:message name="ILigaService_DeleteMatch_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteMatchResponse" />
   </wsdl:message>
+  <wsdl:message name="ILigaService_GenerateMatches_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateMatches" />
+  </wsdl:message>
+  <wsdl:message name="ILigaService_GenerateMatches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateMatchesResponse" />
+  </wsdl:message>
   <wsdl:message name="ILigaService_GetAllSeasons_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllSeasons" />
   </wsdl:message>
@@ -297,6 +303,10 @@
     <wsdl:operation name="DeleteMatch">
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/DeleteMatch" message="tns:ILigaService_DeleteMatch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/DeleteMatchResponse" message="tns:ILigaService_DeleteMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateMatches">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GenerateMatches" message="tns:ILigaService_GenerateMatches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILigaService/GenerateMatchesResponse" message="tns:ILigaService_GenerateMatches_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllSeasons">
       <wsdl:input wsaw:Action="http://tempuri.org/ILigaService/GetAllSeasons" message="tns:ILigaService_GetAllSeasons_InputMessage" />
@@ -534,6 +544,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteMatch">
       <soap:operation soapAction="http://tempuri.org/ILigaService/DeleteMatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateMatches">
+      <soap:operation soapAction="http://tempuri.org/ILigaService/GenerateMatches" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

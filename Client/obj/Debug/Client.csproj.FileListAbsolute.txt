@@ -1,7 +1,6 @@
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\Client.exe.config
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\Client.exe
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\Client.pdb
-C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\App.g.cs
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Client_MarkupCompile.cache
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Client_MarkupCompile.lref
@@ -15,7 +14,6 @@ C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\Ser
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\FluentNHibernate.dll
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\NHibernate.dll
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\Iesi.Collections.dll
-C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\Server.pdb
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\Server.exe.config
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\FluentNHibernate.pdb
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\FluentNHibernate.xml
@@ -33,3 +31,7 @@ C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Vie
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowSeason.baml
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowAddMatch.g.cs
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowAddMatch.baml
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\Server.pdb
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowEditMatch.g.cs
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowEditMatch.baml

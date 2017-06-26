@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\App.xaml
-5-1398578768
+6992028796
 
-30-1012324308
+33501191051
 16-1083944198
-Views\MainWindow.xaml;Views\WindowAddMatch.xaml;Views\WindowBettor.xaml;Views\WindowSeason.xaml;Views\WindowTeam.xaml;
+Views\MainWindow.xaml;Views\WindowAddMatch.xaml;Views\WindowBettor.xaml;Views\WindowEditMatch.xaml;Views\WindowSeason.xaml;Views\WindowTeam.xaml;
 
 False
 

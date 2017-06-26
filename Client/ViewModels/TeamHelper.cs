@@ -26,5 +26,13 @@ namespace Client.ViewModels
 		{
 			WcfHelper.client.DeleteRelation(this.Relation);
 		}
+
+		public WcfTeam GetTeam()
+		{
+			WcfTeam team = new WcfTeam();
+			team.Id = this.Id;
+			team.Name = this.Name;
+			return team;
+		}
 	}
 }

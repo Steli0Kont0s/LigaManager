@@ -83,6 +83,9 @@ namespace Server
 		[OperationContract]
 		void DeleteMatch(WcfMatch match);
 
+		[OperationContract]
+		void GenerateMatches(WcfSeason season);
+
 
 
 
