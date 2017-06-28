@@ -35,3 +35,5 @@ C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Cli
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Client.pdb
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\bin\Debug\Server.pdb
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowAddSeason.g.cs
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\Views\WindowAddSeason.baml

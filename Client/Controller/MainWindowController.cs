@@ -155,6 +155,25 @@ namespace Client.Controller
 			}
 		}
 
+		private void AddSeason()
+		{
+			WcfSeason addedSeason = new WindowAddSeasonController().AddSeason();
+			if (addedSeason != null)
+			{
+				WcfHelper.client.AddSeason(addedSeason);
+				ReloadSeasons();
+			}
+		}
+
+		private void DeleteSeason()
+		{
+			if(mViewModel.SelectedSeason != null)
+			{
+				WcfHelper.client.DeleteSeason(mViewModel.SelectedSeason);
+				ReloadSeasons();
+			}
+		}
+
 		// Button Add
 		private void AddCommandExecute(object obj)
 		{
@@ -168,8 +187,8 @@ namespace Client.Controller
 					AddTeam();
 					break;
 
-				case 2:		// Seasons
-
+				case 2:     // Seasons
+					AddSeason();
 					break;
 			}
 		}
@@ -207,7 +226,7 @@ namespace Client.Controller
 					break;
 
 				case 2:     // Seasons
-
+					DeleteSeason();
 					break;
 			}				
 		}

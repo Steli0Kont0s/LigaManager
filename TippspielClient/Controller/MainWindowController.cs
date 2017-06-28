@@ -1,10 +1,10 @@
 ﻿using Client.Framework;
+using Server.WcfModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using TippspielClient.ViewModels;
 using TippspielClient.Views;
 
@@ -12,34 +12,57 @@ namespace TippspielClient.Controller
 {
 	class MainWindowController
 	{
-		private MainWindow mView;
-		private MainWindowViewModel mViewModel;
+		private List<WcfMatch> SeasonMatches;
+		private int MatchDays = 0;
+		public MainWindow mView;
+		public MainWindowViewModel mViewModel;
 
-		public void Initialize()
+		public MainWindowController(WcfBettor bettor)
 		{
 			mView = new MainWindow();
 			mViewModel = new MainWindowViewModel
 			{
-				LoginCommand = new RelayCommand(ExecuteLoginCommand),
+				Bettor = bettor,
+				Seasons = new List<WcfSeason>(),
+				MatchDays = new List<MatchDay>(),
+				Bet = new WcfBet(),
+				Bets = new List<WcfBet>()
 			};
+			ReloadSeasons();
+			
 			mView.DataContext = mViewModel;
-			WcfHelper.Initialize();
 
 			mView.ShowDialog();
 		}
 
-		private void ExecuteLoginCommand(object obj)
+		private void ReloadSeasons()
 		{
-			if (WcfHelper.client.CheckBettor(mViewModel.UserName))
+			mViewModel.Seasons = WcfHelper.client.GetAllSeasons().ToList();
+			mViewModel.SelectedSeason = mViewModel.Seasons.First();
+			ReloadMatches();
+		}
+
+		private void ReloadMatches()
+		{
+			if(mViewModel.SelectedSeason != null)
 			{
-				mView.Hide();
-				UserPanelController controller = new UserPanelController(WcfHelper.client.GetBettorByName(mViewModel.UserName));
-				mView.Close();
+				SeasonMatches = WcfHelper.client.GetMatches(mViewModel.SelectedSeason).ToList();
+				MatchDays = SeasonMatches.OrderByDescending(match => match.MatchDay).First().MatchDay;
+				ReloadMatchDays();
 			}
-			else
+		}
+
+		private void ReloadMatchDays()
+		{
+			for(int i = 1; i <= MatchDays; i++)
 			{
-				MessageBox.Show("User existiert nicht");
+				mViewModel.MatchDays.Add(new MatchDay(SeasonMatches, i));
 			}
+		}
+
+		private void ReloadBets()
+		{
+			mViewModel.Bets = WcfHelper.client.GetBets(mViewModel.Bettor).ToList();
 		}
 	}
 }

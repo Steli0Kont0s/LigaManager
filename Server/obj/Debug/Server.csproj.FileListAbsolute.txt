@@ -14,4 +14,3 @@ C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\bin\Debug\NHi
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\bin\Debug\NHibernate.xml
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\bin\Debug\Database\LigaManager.db3
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\bin\Debug\Server.exe.config
-C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache

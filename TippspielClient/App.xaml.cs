@@ -16,7 +16,7 @@ namespace TippspielClient
 	{
 		protected override void OnStartup(StartupEventArgs e)
 		{
-			new MainWindowController().Initialize();
+			new WindowLoginController().Initialize();
 		}
 	}
 }

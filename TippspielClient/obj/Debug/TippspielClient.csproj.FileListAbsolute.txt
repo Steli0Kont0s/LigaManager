@@ -28,5 +28,5 @@ C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\TippspielClient\obj\
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\TippspielClient\obj\Debug\TippspielClient.exe
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\TippspielClient\obj\Debug\TippspielClient.pdb
 C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\TippspielClient\bin\Debug\Server.pdb
-C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\TippspielClient\obj\Debug\Views\UserPanel.g.cs
-C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\TippspielClient\obj\Debug\Views\UserPanel.baml
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\TippspielClient\obj\Debug\Views\WindowLogin.g.cs
+C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\TippspielClient\obj\Debug\Views\WindowLogin.baml

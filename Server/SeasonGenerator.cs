@@ -63,7 +63,7 @@ namespace Server
 			} 
 			else if(teams.Count() > 45 ) // Ab 45 Spielen gibt es Samstage mit mehr als einem Spiel
 			{
-				int additionalSaturdayGames = (teams.Count() - 45) % 11 - 1;
+				int additionalSaturdayGames = (teams.Count() - 45) % 11;
 				test = additionalSaturdayGames;
 				gamesSaturday = (teams.Count() - 45) / 11;
 
@@ -90,7 +90,6 @@ namespace Server
 				
 			}
 
-			
 			int teamCount = teams.Count();
 			for(int i = 0; i < teamCount; i++)
 			{
@@ -98,10 +97,12 @@ namespace Server
 				team = teams.ElementAt(teamId);
 				teams.RemoveAt(teamId);
 				Database.AddMatch(season.Id, team[0], team[1], 0, 0, gameDays.ElementAt(i), mMatchDay);
+				if(i+1 < teamCount)
+				{
+					if (gameDays.ElementAt(i).Day != gameDays.ElementAt(i + 1).Day)
+						mMatchDay++;
+				}
 			}
-			Console.WriteLine(teamCount);
-			Console.WriteLine(gameDays.Count());
-			Console.WriteLine(test);
 		}
 
 

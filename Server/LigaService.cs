@@ -185,7 +185,7 @@ namespace Server
 
 		public void AddSeason(WcfSeason season)
 		{
-			Database.AddSeason(season.Name, season.Description, season.StartDate);
+			Database.AddSeason(season.Name, season.Description, season.StartDate, season.Sequence);
 		}
 
 		public void EditSeason(WcfSeason season)

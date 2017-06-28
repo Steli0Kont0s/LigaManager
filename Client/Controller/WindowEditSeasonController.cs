@@ -65,8 +65,11 @@ namespace Client.Controller
 
 		private void ExecuteAddTeamCommand(object obj)
 		{
-			WcfHelper.client.AddTeamToSeason(mViewModel.SelectedAllTeam, Season);
-			ReloadTeams();
+			if(mViewModel.SelectedAllTeam != null)
+			{
+				WcfHelper.client.AddTeamToSeason(mViewModel.SelectedAllTeam, Season);
+				ReloadTeams();
+			}
 		}
 
 		private void ExecuteDeleteTeamCommand(object obj)
@@ -130,11 +133,14 @@ namespace Client.Controller
 
 		private void EditMatch()
 		{
-			WcfMatch EditedMatch = new WindowEditMatchController().EditMatch(mViewModel.SelectedMatch);
-			if (EditedMatch != null)
+			if(mViewModel.SelectedMatch != null)
 			{
-				WcfHelper.client.EditMatch(EditedMatch);
-				ReloadMatches();
+				WcfMatch EditedMatch = new WindowEditMatchController().EditMatch(mViewModel.SelectedMatch);
+				if (EditedMatch != null)
+				{
+					WcfHelper.client.EditMatch(EditedMatch);
+					ReloadMatches();
+				}
 			}
 		}
 

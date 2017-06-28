@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace TippspielClient.Views
 {
 	/// <summary>
-	/// Interaction logic for UserPanel.xaml
+	/// Interaction logic for WindowLogin.xaml
 	/// </summary>
-	public partial class UserPanel : Window
+	public partial class WindowLogin : Window
 	{
-		public UserPanel()
+		public WindowLogin()
 		{
 			InitializeComponent();
 		}

@@ -220,13 +220,14 @@ namespace Server
 			return mSeasonRepository.GetById(id);
 		}
 
-		public static void AddSeason(string name, string description, DateTime startDate)
+		public static void AddSeason(string name, string description, DateTime startDate, int sequence)
 		{
 			Season newSeason = new Season();
 			newSeason.Name = name;
 			newSeason.Description = description;
 			newSeason.StartDate = startDate;
-			// Sequence kommt hier her
+			newSeason.Sequence = sequence;
+			mSeasonRepository.Save(newSeason);
 		}
 
 		public static void EditSeason(Season season, string name, string description, DateTime startDate)
