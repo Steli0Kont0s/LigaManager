@@ -29,15 +29,18 @@ namespace TippspielClient.Controller
 				MatchDays = new ObservableCollection<MatchDay>(),
 				Bets = new ObservableCollection<WcfBet>(),
 				Teams = new List<TeamHelper>(),
+				Bettors = new List<WcfBettor>(),
 				MatchIsNotOver = System.Windows.Visibility.Hidden,
 				MatchIsOver = System.Windows.Visibility.Hidden,
 				ShowBet = System.Windows.Visibility.Hidden,
+				ShowNotBet = System.Windows.Visibility.Hidden,
 				AddBetCommand = new RelayCommand(ExecuteAddBetCommand),
 				EditBetCommand = new RelayCommand(ExecuteEditBetCommand),
 				DeleteBetCommand = new RelayCommand(ExecuteDeleteBetCommand)
 			};
 			ReloadSeasons();
 			ReloadBets();
+			ReloadBettors();
 
 			mView.DataContext = mViewModel;
 
@@ -47,14 +50,22 @@ namespace TippspielClient.Controller
 
 		private void ExecuteAddBetCommand(Object obj)
 		{
-			WcfBet newBet = new WcfBet();
-			newBet.MatchId = mViewModel.SelectedMatch.Id;
-			newBet.BettorId = mViewModel.Bettor.Id;
-			newBet.HomeTeamScore = 0;
-			newBet.AwayTeamScore = 0;
-			newBet.Date = DateTime.Now;
-			mViewModel.Bets.Add(newBet);
-			WcfHelper.client.AddBet(newBet);
+			if(mViewModel.SelectedMatch != null)
+			{
+				WcfBet newBet = new WcfBet();
+				newBet.MatchId = mViewModel.SelectedMatch.Id;
+				newBet.BettorId = mViewModel.Bettor.Id;
+				newBet.HomeTeamScore = 0;
+				newBet.AwayTeamScore = 0;
+				newBet.Date = DateTime.Now;
+				mViewModel.Bets.Add(newBet);
+				WcfHelper.client.AddBet(newBet);
+				ReloadBets();
+				mViewModel.SelectedBet = newBet;
+				mViewModel.ShowBet = System.Windows.Visibility.Visible;
+				mViewModel.ShowNotBet = System.Windows.Visibility.Hidden;
+				mViewModel.BetIsEditable = true;
+			}
 		}
 
 		private void ExecuteEditBetCommand(Object obj)
@@ -70,12 +81,13 @@ namespace TippspielClient.Controller
 			{
 				WcfHelper.client.DeleteBet(mViewModel.SelectedBet);
 				mViewModel.Bets.Remove(mViewModel.SelectedBet);
+				mViewModel.SelectedBet = null;
 			}
 			ReloadBets();
 		}
 
 
-		private void ReloadSeasons()
+		public void ReloadSeasons()
 		{
 			mViewModel.Seasons.Clear();
 			foreach(WcfSeason season in WcfHelper.client.GetAllSeasons())
@@ -83,8 +95,44 @@ namespace TippspielClient.Controller
 				mViewModel.Seasons.Add(season);
 			}
 			mViewModel.SelectedSeason = mViewModel.Seasons.First();
-			ReloadMatches();
-			ReloadTeams();
+			//ReloadMatches();
+			//ReloadTeams();
+		}
+
+		private void ReloadBettors()
+		{
+			mViewModel.Bettors.Clear();
+			foreach(WcfBettor bettor in WcfHelper.client.GetAllBettors())
+			{
+				foreach(WcfBet bet in WcfHelper.client.GetBets(bettor))
+				{
+					WcfMatch match = WcfHelper.client.GetMatchById(bet.MatchId);
+					if(bet.HomeTeamScore == match.HomeTeamScore)
+					{
+						if(bet.AwayTeamScore == match.AwayTeamScore)
+						{
+							bettor.Points += 3;
+						}
+						else
+						{
+							bettor.Points++;
+						}
+					}
+					else if(bet.AwayTeamScore == match.AwayTeamScore)
+					{
+						bettor.Points++;
+					}
+				}
+				mViewModel.Bettors.Add(bettor);
+			}
+
+			mViewModel.Bettors = mViewModel.Bettors.OrderByDescending(x => x.Points).ToList();
+			int rank = 1;
+			foreach (WcfBettor bettor in mViewModel.Bettors)
+			{
+				bettor.Rank = rank;
+				rank++;
+			}
 		}
 
 		private void ReloadTeams()

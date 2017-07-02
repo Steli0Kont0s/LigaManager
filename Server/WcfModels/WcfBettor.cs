@@ -13,6 +13,8 @@ namespace Server.WcfModels
 		public string Nickname { get; set; }
 		public string Firstname { get; set; }
 		public string Lastname { get; set; }
+		public int Points { get; set; }
+		public int Rank { get; set; }
 
 		public WcfBettor() { }
 

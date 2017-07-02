@@ -109,6 +109,11 @@
     <None Include="Connected Services\LigaServiceReference\LigaService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Server.Models.Bet.datasource" />
+    <None Include="Properties\DataSources\Server.Models.Bettor.datasource" />
+    <None Include="Properties\DataSources\Server.Models.Match.datasource" />
+    <None Include="Properties\DataSources\Server.Models.Season.datasource" />
+    <None Include="Properties\DataSources\Server.Models.Team.datasource" />
     <None Include="Properties\DataSources\Server.WcfModels.WcfBet.datasource" />
     <None Include="Properties\DataSources\Server.WcfModels.WcfBettor.datasource" />
     <None Include="Properties\DataSources\Server.WcfModels.WcfMatch.datasource" />
@@ -137,6 +142,16 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\LigaServiceReference\" />
   </ItemGroup>
   <ItemGroup>
@@ -153,16 +168,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Views\MainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WindowLogin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

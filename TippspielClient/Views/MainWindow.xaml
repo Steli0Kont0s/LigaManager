@@ -77,12 +77,12 @@
 									</Grid.ColumnDefinitions>
 									<TextBox IsEnabled="{Binding BetIsEditable}" Text="{Binding SelectedBet.HomeTeamScore}" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" Margin="5"/>
 									<TextBox IsEnabled="{Binding BetIsEditable}" Text="{Binding SelectedBet.AwayTeamScore}" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center" Margin="5"/>
-									<Button Command="{Binding EditBetCommand}" Content="Speichern" Width="100" Grid.Row="1" Grid.Column="0" Margin="5"/>
+									<Button IsEnabled="{Binding BetIsEditable}" Command="{Binding EditBetCommand}" Content="Speichern" Width="100" Grid.Row="1" Grid.Column="0" Margin="5"/>
 									<Button Command="{Binding DeleteBetCommand}" Content="Löschen" Width="100" Grid.Row="1" Grid.Column="1" Margin="5"/>
 								</Grid>
 							</StackPanel>
 						</GroupBox>
-						<Button Command="{Binding AddBetCommand}" Content="Neue Wette" Width="100" Grid.Row="1" Grid.Column="1" Margin="5"/>
+						<Button Visibility="{Binding ShowNotBet}" Command="{Binding AddBetCommand}" Content="Neue Wette" Width="100" Grid.Row="1" Grid.Column="1" Margin="5"/>
 					</StackPanel>
 				</DockPanel>
 			</TabItem>
@@ -102,6 +102,17 @@
 					</ListView.View>
 				</ListView>
 			</TabItem>
-		</TabControl>
+            <TabItem Header="Rangliste">
+                <ListView ItemsSource="{Binding Bettors}" x:Name="Bettors">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="50"  Header="#" DisplayMemberBinding="{Binding Rank}"/>
+                            <GridViewColumn Width="130"  Header="Name" DisplayMemberBinding="{Binding Nickname}"/>
+                            <GridViewColumn Width="50"  Header="Pkt." DisplayMemberBinding="{Binding Points}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+        </TabControl>
 	</Grid>
 </Window>

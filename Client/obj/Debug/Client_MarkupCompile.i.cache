@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\obj\Debug\
+D:\Users\Jan\Source\Repos\LigaManager\Client\obj\Debug\
 Client
 none
 false
 DEBUG;TRACE
-C:\Users\sps_jst\Documents\Schule\Liga Manager\Liga Manager\Client\App.xaml
+D:\Users\Jan\Source\Repos\LigaManager\Client\App.xaml
 7-397849796
 
-36515378991
-16-1083944198
+36-324907293
+16-1502921523
 Views\MainWindow.xaml;Views\WindowAddMatch.xaml;Views\WindowAddSeason.xaml;Views\WindowBettor.xaml;Views\WindowEditMatch.xaml;Views\WindowSeason.xaml;Views\WindowTeam.xaml;
 
-False
+True
 

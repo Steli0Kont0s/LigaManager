@@ -12,6 +12,8 @@
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Lastname" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Nickname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Points" type="xs:int" />
+      <xs:element minOccurs="0" name="Rank" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WcfBettor" nillable="true" type="tns:WcfBettor" />
@@ -23,8 +25,15 @@
   <xs:element name="ArrayOfWcfTeam" nillable="true" type="tns:ArrayOfWcfTeam" />
   <xs:complexType name="WcfTeam">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Defeats" type="xs:int" />
+      <xs:element minOccurs="0" name="Draws" type="xs:int" />
+      <xs:element minOccurs="0" name="GoalsDifference" type="xs:int" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfGames" type="xs:int" />
+      <xs:element minOccurs="0" name="Points" type="xs:int" />
+      <xs:element minOccurs="0" name="Rank" type="xs:int" />
+      <xs:element minOccurs="0" name="Wins" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WcfTeam" nillable="true" type="tns:WcfTeam" />

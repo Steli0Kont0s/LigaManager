@@ -14,7 +14,8 @@ namespace Server.Mappings
 			Map(x => x.GetDate).Column("DateTime").Not.Nullable();
 			Map(x => x.HomeTeamScore).Not.Nullable();
 			Map(x => x.AwayTeamScore).Not.Nullable();
-			//References(x => x.Bettor).Column("BettorId").Not.Nullable();
+			Map(x => x.BettorId).Not.Nullable();
+
 			References(x => x.Match).Column("MatchId").Not.Nullable();
 		}
 	}

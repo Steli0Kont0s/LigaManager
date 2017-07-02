@@ -14,6 +14,8 @@ namespace Server.Mappings
 			Map(x => x.Firstname).Length(100).Not.Nullable();
 			Map(x => x.Lastname).Length(100).Not.Nullable();
 			Map(x => x.Nickname).Length(50).Not.Nullable().Unique();
+
+
 			HasMany(x => x.Bets).KeyColumn("BettorId").Cascade.All().Inverse();
 		}
 	}

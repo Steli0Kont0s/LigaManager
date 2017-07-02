@@ -16,6 +16,7 @@ namespace Server.Mappings
 			Map(x => x.Sequence).Not.Nullable().Unique();
 			HasMany(x => x.TeamRelations).KeyColumn("SeasonId").Cascade.All().Inverse();
 			HasMany(x => x.Matches).KeyColumn("SeasonId").Cascade.All().Inverse();
+
 		}
 	}
 }

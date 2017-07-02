@@ -15,6 +15,7 @@ namespace Server.Mappings
 			Map(x => x.SeasonId).Not.Nullable().Unique();
 
 
+
 		}
 	}
 }

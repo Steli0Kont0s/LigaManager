@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f7f2c1b2-5c80-42ae-9fe6-e1c4b56fd5bb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e1a82fc0-7575-4c21-adb0-8fa26a10a6bb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:8733/LigaService" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="LigaService.disco" MetadataType="Disco" ID="d87d9425-a1e5-462e-be15-b67f8afd5c2a" SourceId="1" SourceUrl="http://localhost:8733/LigaService?disco" />
-    <MetadataFile FileName="LigaService.xsd" MetadataType="Schema" ID="1183cbad-4b0b-443f-a805-d187abd9cc2c" SourceId="1" SourceUrl="http://localhost:8733/LigaService?xsd=xsd2" />
-    <MetadataFile FileName="LigaService1.xsd" MetadataType="Schema" ID="0530a81a-9b6b-42e2-9a8e-065e858276d7" SourceId="1" SourceUrl="http://localhost:8733/LigaService?xsd=xsd1" />
-    <MetadataFile FileName="LigaService.wsdl" MetadataType="Wsdl" ID="b872d2a7-1a02-4815-b940-a9c2f2fb37bb" SourceId="1" SourceUrl="http://localhost:8733/LigaService?wsdl" />
-    <MetadataFile FileName="LigaService2.xsd" MetadataType="Schema" ID="0e2ddea6-38a4-4fe5-a86b-aa5dbb325e3b" SourceId="1" SourceUrl="http://localhost:8733/LigaService?xsd=xsd0" />
+    <MetadataFile FileName="LigaService.disco" MetadataType="Disco" ID="3b7d17a6-cc10-4bfb-b371-e1bcc0ff9ee5" SourceId="1" SourceUrl="http://localhost:8733/LigaService?disco" />
+    <MetadataFile FileName="LigaService.xsd" MetadataType="Schema" ID="8acfb53e-adf1-4559-8127-55dc3c5302f0" SourceId="1" SourceUrl="http://localhost:8733/LigaService?xsd=xsd2" />
+    <MetadataFile FileName="LigaService1.xsd" MetadataType="Schema" ID="327b3e93-1e52-45c8-8ab7-37aae43bd44e" SourceId="1" SourceUrl="http://localhost:8733/LigaService?xsd=xsd1" />
+    <MetadataFile FileName="LigaService.wsdl" MetadataType="Wsdl" ID="3e7ca713-110b-4c77-8b60-a0e9082470ea" SourceId="1" SourceUrl="http://localhost:8733/LigaService?wsdl" />
+    <MetadataFile FileName="LigaService2.xsd" MetadataType="Schema" ID="d27ccc67-2113-4991-91a9-2cc29b52d24b" SourceId="1" SourceUrl="http://localhost:8733/LigaService?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

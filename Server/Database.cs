@@ -308,14 +308,15 @@ namespace Server
 			return mBetRepository.GetById(id);
 		}
 
-		public static void AddBet(Bettor bettor, Match match, int homeTeamScore, int awayTeamScore)
+		public static void AddBet(Bettor bettor, Match match, int homeTeamScore, int awayTeamScore, DateTime date)
 		{
 			Bet bet = new Bet();
 			bet.Date = DateTime.Now;
 			bet.HomeTeamScore = homeTeamScore;
 			bet.AwayTeamScore = awayTeamScore;
 			bet.Match = match;
-			//bet.Bettor = bettor;
+			bet.Date = date;
+			bet.BettorId = bettor.Id;
 			mBetRepository.Save(bet);
 		}
 

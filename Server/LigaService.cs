@@ -228,7 +228,7 @@ namespace Server
 
 		public void AddBet(WcfBet bet)
 		{
-			Database.AddBet(Database.GetBettorById(bet.BettorId), Database.GetMatchById(bet.MatchId), bet.HomeTeamScore, bet.AwayTeamScore);
+			Database.AddBet(Database.GetBettorById(bet.BettorId), Database.GetMatchById(bet.MatchId), bet.HomeTeamScore, bet.AwayTeamScore, bet.Date);
 		}
 
 		public void EditBet(WcfBet bet)

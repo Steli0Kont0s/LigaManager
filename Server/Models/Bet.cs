@@ -24,6 +24,7 @@ namespace Server.Models
 		public int HomeTeamScore { get; set; }
 		public int AwayTeamScore { get; set; }
 		public Match Match { get; set; }
-		//public Bettor Bettor { get; set; }
+		public int BettorId { get; set; }
+
 	}
 }

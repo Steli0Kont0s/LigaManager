@@ -58,8 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\Delete.cs" />
-    <Compile Include="Commands\List.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Framework\NHibernateHelper.cs" />
     <Compile Include="Framework\Repository.cs" />
